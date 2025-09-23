@@ -1,0 +1,87 @@
+/* src/styles/index.css */
+
+
+/* 
+  Haupt-CSS-Datei die alle anderen CSS-Dateien importiert
+  Wird nur einmal in App.tsx importiert
+*/
+
+/* 1. CSS Variables zuerst laden (Design-Tokens) */
+@import './variables.css';
+
+/* 2. Globale Basis-Styles (Reset, Typography, Layout) */
+@import './global.css';
+
+/* 3. Component-spezifische Styles */
+@import './navigation.css';
+@import './blog-liste.css';
+@import './blog-detail.css';
+
+/* 
+  ========================================
+  OPTIONALE CUSTOM OVERRIDES
+  ========================================
+  
+  Hier kannst du spezifische Anpassungen machen,
+  die über die Component-Styles hinausgehen
+*/
+
+/* Debug-Hilfsmittel (nur während Entwicklung) */
+.debug-border { border: 1px solid red !important; }
+.debug-bg { background: rgba(255, 0, 0, 0.1) !important; }
+
+/* Print-Styles für bessere Druckqualität */
+@media print {
+  /* Navigation beim Drucken verstecken */
+  .main-navigation {
+    display: none !important;
+  }
+  
+  /* Main Content ohne Padding-Top */
+  .main-content {
+    padding-top: 0 !important;
+  }
+  
+  /* Schatten und Animationen entfernen */
+  * {
+    box-shadow: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  /* Links mit URL anzeigen */
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  /* Artikel-Karten für Print optimieren */
+  .artikel-karte {
+    break-inside: avoid;
+    margin-bottom: 2rem !important;
+  }
+}
+
+/* 
+  Accessibility Improvements 
+  (Respektiert user preferences)
+*/
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-primary: #0066cc;
+    --color-primary-dark: #004499;
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.3);
+    --shadow-lg: 0 8px 25px rgba(0,0,0,0.4);
+  }
+}

@@ -1,0 +1,121 @@
+/* ========================================
+   2. NAVIGATION STYLES - src/styles/navigation.css
+   ======================================== */
+
+/* Navigation Container */
+.main-navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #2c3e50;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+/* Brand/Logo */
+.nav-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.brand-icon {
+  margin-right: 10px;
+  font-size: 1.5rem;
+}
+
+.brand-text {
+  color: #ecf0f1;
+}
+
+/* Navigation Links Container */
+.nav-links {
+  display: flex;
+  gap: 0;
+  align-items: center;
+}
+
+/* VERSION 5: Minimal Line Button Style */
+.nav-btn {
+  padding: 15px 20px;
+  text-decoration: none;
+  color: #ecf0f1;
+  font-weight: 500;
+  font-size: 0.95rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect */
+.nav-btn:hover {
+  border-bottom-color: #3498db;
+  background: rgba(52, 152, 219, 0.1);
+  color: #ecf0f1;
+}
+
+/* Active State - Version 5 Style */
+.nav-btn.active {
+  border-bottom-color: #e67e22;  /* Orange Underline */
+  color: #e67e22;                /* Orange Text */
+  background: rgba(230, 126, 34, 0.1);  /* Light Orange Background */
+}
+
+/* Special Styling für Strapi Blog Button */
+.nav-btn:nth-child(3) {
+  font-weight: 600;  /* Strapi Blog Button etwas fetter */
+}
+
+/* Mobile Navigation */
+@media (max-width: 768px) {
+  .nav-container {
+    height: 60px;
+    padding: 0 15px;
+  }
+  
+  .nav-links {
+    gap: 5px;
+  }
+  
+  .nav-btn {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+  
+  .brand-text {
+    display: none;  /* Hide text on mobile, keep only icon */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 0;
+  }
+  
+  .nav-btn {
+    padding: 12px 8px;
+    font-size: 0.8rem;
+  }
+}
