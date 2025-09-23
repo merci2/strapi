@@ -13,6 +13,8 @@ const headers = {
   'Authorization': `Bearer ${API_TOKEN}`,
 };
 
+
+
 // Holt alle Artikel aus Strapi
 export const getAlleArtikel = async (): Promise<StrapiArticle[]> => {
   try {
