@@ -64,13 +64,13 @@ export interface StrapiCategory extends StrapiBaseEntity {
 
 // Haupt-Artikel-Entity (Sample Data Structure)
 export interface StrapiArticle extends StrapiBaseEntity {
-  // Basis-Felder aus Strapi Sample Data
+  // Basis-Felder aus Strapi Sample Data (REQUIRED)
   title: string;                    // Titel des Artikels
   description: string;              // Kurze Beschreibung/Excerpt
-  content: string;                  // Vollständiger Rich-Text Inhalt
   slug: string;                     // URL-Slug für SEO
 
-  // Relations
+  // Optional fields - nur wenn populated oder erweitert
+  content?: string;                 // Vollständiger Rich-Text Inhalt
   cover?: StrapiMedia;              // Cover-Bild (populated)
   category?: StrapiCategory;        // Kategorie (populated)
   
@@ -175,7 +175,7 @@ export function isStrapiArticle(obj: unknown): obj is StrapiArticle {
     'id' in obj &&
     'documentId' in obj &&
     'title' in obj &&
-    'content' in obj
+    'description' in obj
   );
 }
 

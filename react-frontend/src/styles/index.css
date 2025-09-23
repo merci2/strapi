@@ -14,8 +14,8 @@
 
 /* 3. Component-spezifische Styles */
 @import './navigation.css';
-@import './blog-liste.css';
-@import './blog-detail.css';
+@import './bloglist.css';
+@import './blogdetail.css';
 
 /* 
   ========================================
