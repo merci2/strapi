@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "vocabularies",
+  "info": {
+    "singularName": "vocabulary",
+    "pluralName": "vocabularies",
+    "displayName": "Vocabulary"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "English": {
+      "type": "string"
+    },
+    "German": {
+      "type": "string"
+    }
+  }
+}
