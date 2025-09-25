@@ -2,9 +2,91 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import type { StrapiArticle } from '../types';
+import type { StrapiArticle, StrapiBlock, StrapiMedia } from '../types';
 import { getArtikelById, getBildUrl } from '../services/api';
 import '../styles/blogdetail.css'; 
+
+// Component für Block-Rendering
+const BlockRenderer: React.FC<{ blocks: StrapiBlock[] }> = ({ blocks }) => {
+  if (!blocks || blocks.length === 0) {
+    return (
+      <div className="no-content">
+        <p>Kein Inhalt verfügbar.</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="blocks-container">
+      {blocks.map((block, index) => {
+        switch (block.__component) {
+          case 'shared.rich-text':
+            return (
+              <div key={index} className="block-rich-text">
+                <div
+                  className="rich-text-content"
+                  dangerouslySetInnerHTML={{ __html: block.body }}
+                />
+              </div>
+            );
+
+          case 'shared.quote':
+            return (
+              <blockquote key={index} className="block-quote">
+                <p>"{block.body}"</p>
+                {block.author && (
+                  <cite>— {block.author}</cite>
+                )}
+              </blockquote>
+            );
+
+          case 'shared.media':
+            return (
+              <div key={index} className="block-media">
+                {block.file && (
+                  <img
+                    src={getBildUrl(block.file.url)}
+                    alt={block.file.alternativeText || 'Media content'}
+                    className="block-image"
+                  />
+                )}
+              </div>
+            );
+
+          case 'shared.slider':
+            return (
+              <div key={index} className="block-slider">
+                {block.files && block.files.length > 0 && (
+                  <div className="slider-container">
+                    {block.files.map((file: StrapiMedia, fileIndex: number) => (
+                      <img
+                        key={fileIndex}
+                        src={getBildUrl(file.url)}
+                        alt={file.alternativeText || `Slide ${fileIndex + 1}`}
+                        className="slider-image"
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            );
+
+          default: {
+            const unknownComponent = typeof block === 'object' && block && '__component' in block 
+              ? (block as { __component: string }).__component 
+              : 'unknown';
+            console.warn('Unknown block type:', unknownComponent);
+            return (
+              <div key={index} className="block-unknown">
+                <p>Unbekannter Inhaltstyp: {unknownComponent}</p>
+              </div>
+            );
+          }
+        }
+      })}
+    </div>
+  );
+};
 
 const BlogDetail: React.FC = () => {
   // useParams Hook gibt uns die URL-Parameter (documentId)
@@ -26,12 +108,14 @@ const BlogDetail: React.FC = () => {
 
       try {
         setLoading(true);
+        console.log('🔍 Loading article with ID:', id);
         const artikelData = await getArtikelById(id);
+        console.log('✅ Article loaded:', artikelData);
         setArtikel(artikelData);
         setError(null);
       } catch (err) {
-        setError('Artikel konnte nicht geladen werden');
-        console.error('Fehler:', err);
+        console.error('❌ Error loading article:', err);
+        setError(err instanceof Error ? err.message : 'Artikel konnte nicht geladen werden');
       } finally {
         setLoading(false);
       }
@@ -125,13 +209,15 @@ const BlogDetail: React.FC = () => {
           )}
         </header>
 
-        {/* Artikel-Inhalt */}
+        {/* Artikel-Inhalt - Jetzt mit Blocks statt content */}
         <div className="artikel-body">
-          <div 
-            className="artikel-content"
-            // dangerouslySetInnerHTML rendert HTML aus Strapi Rich Text Editor
-            dangerouslySetInnerHTML={{ __html: artikel.content }}
-          />
+          {artikel.blocks && artikel.blocks.length > 0 ? (
+            <BlockRenderer blocks={artikel.blocks} />
+          ) : (
+            <div className="no-content">
+              <p>Kein Inhalt verfügbar für diesen Artikel.</p>
+            </div>
+          )}
         </div>
 
         {/* Artikel-Footer */}
