@@ -1,11 +1,21 @@
-// 2. API SERVICE - src/services/api.ts
+// src/services/api.ts
+// ========================================
+// API SERVICE with Environment Variable Fallbacks
 // ========================================
 
 import type { StrapiArticle, StrapiResponse } from '../types';
 
-// Basis-Konfiguration für alle API-Aufrufe
-const API_URL = import.meta.env.VITE_STRAPI_API_URL;
-const API_TOKEN = import.meta.env.VITE_STRAPI_API_TOKEN_FULL_ACCESS;
+// Basis-Konfiguration mit Fallbacks
+const API_URL = import.meta.env.VITE_STRAPI_API_URL || 'http://localhost:1337';
+const API_TOKEN = import.meta.env.VITE_STRAPI_API_TOKEN_FULL_ACCESS || '7340d507d3da17bf3bc77f252757719019fce4466ed3c168f97f4c503a06d394a62c9e91fcc5f9c365f527543e408b0fec38b70d12a6c0f67dc15632c8d8b5cb49e4f140ae48b29b66dab39cfa4afc5a7da0d97853d87e57ece1b2b54db25c567dbeaa2f8c2361b2fd135970ebfb40a99d96f85c03a94341c0d120908029758f';
+
+// Debug: Environment Variables
+console.log('🔧 API Configuration:', {
+  API_URL: API_URL,
+  API_TOKEN_EXISTS: !!API_TOKEN,
+  ENV_API_URL: import.meta.env.VITE_STRAPI_API_URL,
+  ENV_TOKEN_EXISTS: !!import.meta.env.VITE_STRAPI_API_TOKEN_FULL_ACCESS
+});
 
 // Standard-Headers für alle Requests
 const headers = {

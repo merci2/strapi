@@ -109,9 +109,29 @@ const BlogDetail: React.FC = () => {
       try {
         setLoading(true);
         console.log('🔍 Loading article with ID:', id);
-        const artikelData = await getArtikelById(id);
-        console.log('✅ Article loaded:', artikelData);
-        setArtikel(artikelData);
+        
+        const apiUrl = `http://localhost:1337/api/articles/${id}?populate=*`;
+        console.log('📍 Full API URL being called:', apiUrl);
+        
+        // Direkter fetch statt getArtikelById
+        const response = await fetch(apiUrl, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer 7340d507d3da17bf3bc77f252757719019fce4466ed3c168f97f4c503a06d394a62c9e91fcc5f9c365f527543e408b0fec38b70d12a6c0f67dc15632c8d8b5cb49e4f140ae48b29b66dab39cfa4afc5a7da0d97853d87e57ece1b2b54db25c567dbeaa2f8c2361b2fd135970ebfb40a99d96f85c03a94341c0d120908029758f'
+          }
+        });
+        
+        console.log('📊 Response Status:', response.status);
+        console.log('📋 Content-Type:', response.headers.get('content-type'));
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        console.log('✅ Article loaded:', result);
+        
+        setArtikel(result.data);
         setError(null);
       } catch (err) {
         console.error('❌ Error loading article:', err);
