@@ -14,8 +14,8 @@ const Navigation: React.FC = () => {
         {/* Logo/Brand */}
         <div className="nav-brand">
           <Link to="/" className="brand-link">
-            <span className="brand-icon">🚀</span>
-            <span className="brand-text">Mein Blog</span>
+            {/* <span className="brand-icon">🚀</span> */}
+            <span className="brand-text">AI Chatbots</span>
           </Link>
         </div>
 
@@ -40,7 +40,7 @@ const Navigation: React.FC = () => {
             to="/blog" 
             className={`nav-btn ${location.pathname.startsWith('/blog') ? 'active' : ''}`}
           >
-            📝 Strapi Blog
+            Notes
           </Link>
           
           <Link 
