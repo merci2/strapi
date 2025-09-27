@@ -14,7 +14,7 @@ const Navigation: React.FC = () => {
         {/* Logo/Brand */}
         <div className="nav-brand">
           <Link to="/" className="brand-link">
-            {/* <span className="brand-icon">🚀</span> */}
+            <span className="brand-icon">🗪</span>
             <span className="brand-text">AI Chatbots</span>
           </Link>
         </div>
