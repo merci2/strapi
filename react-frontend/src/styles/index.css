@@ -1,88 +1,241 @@
-/* src/styles/index.css */
-
+/* react-frontend/src/styles/index.css */
 
 /* 
-  Haupt-CSS-Datei die alle anderen CSS-Dateien importiert
-  Wird nur einmal in App.tsx importiert
+  MASTER CSS-DATEI - Orchestriert alle CSS-Imports
+  ✅ Wird nur einmal in App.tsx importiert
+  ✅ Steuert die Lade-Reihenfolge aller Styles
 */
+
+/* ========================================
+   CSS IMPORTS IN KORREKTER REIHENFOLGE
+   ======================================== */
 
 /* 1. CSS Variables zuerst laden (Design-Tokens) */
-@import './variables.css';
+@import './variables.css';              /* Lädt alle CSS Custom Properties (:root Variablen) */
 
 /* 2. Globale Basis-Styles (Reset, Typography, Layout) */
-@import './global.css';
+@import './global.css';                 /* Lädt CSS Reset, Body-Styles, Container, Typography */
 
-/* 3. Component-spezifische Styles */
-@import './navigation.css';
-@import './bloglist.css';
-@import './blogdetail.css';
-@import './page-styles.css';
+/* 3. Component-spezifische Styles (in Abhängigkeits-Reihenfolge) */
+@import './navigation.css';             /* Lädt Header-Navigation Styles */
+@import './bloglist.css';               /* Lädt Blog-Übersicht/Grid Styles */
+@import './blogdetail.css';             /* Lädt Blog-Artikel Detail-Seite Styles */
+@import './page-styles.css';            /* Lädt Home & About Seiten Styles */
 
-/* 
-  ========================================
-  OPTIONALE CUSTOM OVERRIDES
-  ========================================
-  
-  Hier kannst du spezifische Anpassungen machen,
-  die über die Component-Styles hinausgehen
-*/
+/* ========================================
+   UTILITY CLASSES (Best Practice)
+   ======================================== */
 
-/* Debug-Hilfsmittel (nur während Entwicklung) */
-.debug-border { border: 1px solid red !important; }
-.debug-bg { background: rgba(255, 0, 0, 0.1) !important; }
+/* Text Alignment Utilities */
+.text-center { text-align: center; }                    /* Zentriert Text horizontal */
+.text-left { text-align: left; }                        /* Linksbündiger Text */
+.text-right { text-align: right; }                      /* Rechtsbündiger Text */
 
-/* Print-Styles für bessere Druckqualität */
+/* Visibility Utilities */
+.hidden { display: none !important; }                   /* Versteckt Element komplett */
+.visible { visibility: visible !important; }            /* Element sichtbar aber behält Platz */
+.invisible { visibility: hidden !important; }           /* Element unsichtbar aber behält Platz */
+
+/* Spacing Utilities (Margin Top) */
+.mt-0 { margin-top: 0 !important; }                     /* Entfernt oberen Margin */
+.mt-1 { margin-top: 0.25rem !important; }               /* 4px oberer Margin */
+.mt-2 { margin-top: 0.5rem !important; }                /* 8px oberer Margin */
+.mt-3 { margin-top: 1rem !important; }                  /* 16px oberer Margin */
+.mt-4 { margin-top: 1.5rem !important; }                /* 24px oberer Margin */
+.mt-5 { margin-top: 3rem !important; }                  /* 48px oberer Margin */
+
+/* Spacing Utilities (Margin Bottom) */
+.mb-0 { margin-bottom: 0 !important; }                  /* Entfernt unteren Margin */
+.mb-1 { margin-bottom: 0.25rem !important; }            /* 4px unterer Margin */
+.mb-2 { margin-bottom: 0.5rem !important; }             /* 8px unterer Margin */
+.mb-3 { margin-bottom: 1rem !important; }               /* 16px unterer Margin */
+.mb-4 { margin-bottom: 1.5rem !important; }             /* 24px unterer Margin */
+.mb-5 { margin-bottom: 3rem !important; }               /* 48px unterer Margin */
+
+/* ========================================
+   DEBUG UTILITIES (Nur für Entwicklung)
+   ======================================== */
+
+.debug-border { 
+  border: 1px solid red !important;                     /* Zeigt Element-Grenzen in rot an */
+}
+
+.debug-bg { 
+  background: rgba(255, 0, 0, 0.1) !important;          /* Färbt Hintergrund leicht rot ein */
+}
+
+.debug-outline {
+  outline: 2px dashed blue !important;                  /* Gestrichelte blaue Umrandung */
+  outline-offset: 2px !important;                       /* 2px Abstand zur Umrandung */
+}
+
+/* ========================================
+   RESPONSIVE HELPER CLASSES
+   ======================================== */
+
+/* Desktop-only Inhalte (versteckt auf Mobile/Tablet) */
+@media (max-width: 767px) {
+  .desktop-only {
+    display: none !important;                           /* Versteckt auf Bildschirmen unter 768px */
+  }
+}
+
+/* Mobile-only Inhalte (versteckt auf Desktop) */
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none !important;                           /* Versteckt auf Bildschirmen ab 768px */
+  }
+}
+
+/* Tablet-only Inhalte (versteckt auf Mobile und Desktop) */
+@media (max-width: 575px), (min-width: 992px) {
+  .tablet-only {
+    display: none !important;                           /* Versteckt außerhalb 576px-991px Bereich */
+  }
+}
+
+/* ========================================
+   PRINT STYLES (Druckoptimierung)
+   ======================================== */
+
 @media print {
-  /* Navigation beim Drucken verstecken */
+  /* Navigation beim Drucken entfernen */
   .main-navigation {
-    display: none !important;
+    display: none !important;                           /* Versteckt Navigation im Druckmodus */
   }
   
-  /* Main Content ohne Padding-Top */
+  /* Hauptinhalt ohne oberen Abstand */
   .main-content {
-    padding-top: 0 !important;
+    padding-top: 0 !important;                          /* Entfernt Platz für fixe Navigation */
   }
   
-  /* Schatten und Animationen entfernen */
+  /* Alle visuellen Effekte entfernen */
   * {
-    box-shadow: none !important;
-    transition: none !important;
-    animation: none !important;
+    box-shadow: none !important;                        /* Entfernt alle Schatten */
+    transition: none !important;                        /* Deaktiviert CSS Übergänge */
+    animation: none !important;                         /* Deaktiviert CSS Animationen */
   }
   
   /* Links mit URL anzeigen */
   a[href]:after {
-    content: " (" attr(href) ")";
-    font-size: 0.8em;
-    color: #666;
+    content: " (" attr(href) ")";                       /* Fügt URL nach Link-Text hinzu */
+    font-size: 0.8em;                                   /* Kleinere Schrift für URLs */
+    color: #666;                                        /* Graue Farbe für URLs */
   }
   
-  /* Artikel-Karten für Print optimieren */
-  .artikel-karte {
-    break-inside: avoid;
-    margin-bottom: 2rem !important;
+  /* Karten für Seitenumbruch optimieren */
+  .artikel-karte,
+  .feature-card,
+  .about-section {
+    break-inside: avoid;                                /* Verhindert Seitenumbruch in Elementen */
+    margin-bottom: 2rem !important;                     /* Abstand zwischen gedruckten Elementen */
+    border: 1px solid #ddd !important;                  /* Rahmen für bessere Abgrenzung */
+  }
+  
+  /* Hero Section für Druck anpassen */
+  .hero-section {
+    background: none !important;                        /* Entfernt Hintergrund-Gradient */
+    color: black !important;                            /* Schwarze Schrift für bessere Lesbarkeit */
+    border: 1px solid #ccc !important;                  /* Rahmen statt Hintergrund */
   }
 }
 
-/* 
-  Accessibility Improvements 
-  (Respektiert user preferences)
-*/
+/* ========================================
+   ACCESSIBILITY IMPROVEMENTS
+   ======================================== */
+
+/* Reduzierte Bewegung respektieren (Barrierefreiheit) */
 @media (prefers-reduced-motion: reduce) {
   * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;              /* Animationen fast instant ausführen */
+    animation-iteration-count: 1 !important;            /* Animationen nur einmal abspielen */
+    transition-duration: 0.01ms !important;             /* Übergänge fast instant ausführen */
+    scroll-behavior: auto !important;                   /* Smooth Scrolling deaktivieren */
   }
 }
 
-/* High Contrast Mode Support */
+/* Hoher Kontrast unterstützen (Barrierefreiheit) */
 @media (prefers-contrast: high) {
   :root {
-    --color-primary: #0066cc;
-    --color-primary-dark: #004499;
-    --shadow-md: 0 4px 15px rgba(0,0,0,0.3);
-    --shadow-lg: 0 8px 25px rgba(0,0,0,0.4);
+    --color-primary: #0066cc;                           /* Kontrastreicheres Primärblau */
+    --color-primary-dark: #004499;                      /* Kontrastreicheres dunkles Blau */
+    --shadow-md: 0 4px 15px rgba(0,0,0,0.3);           /* Stärkere Schatten für bessere Sichtbarkeit */
+    --shadow-lg: 0 8px 25px rgba(0,0,0,0.4);           /* Noch stärkere große Schatten */
+  }
+  
+  /* Stärkere Rahmen für alle interaktiven Elemente */
+  .feature-card,
+  .about-section,
+  .artikel-karte {
+    border: 2px solid #000 !important;                  /* Schwarze Rahmen für bessere Abgrenzung */
+  }
+  
+  /* Rahmen für alle Buttons */
+  .btn,
+  .cta-button,
+  .nav-btn {
+    border: 2px solid currentColor !important;          /* Rahmen in aktueller Textfarbe */
+  }
+}
+
+/* Skip-Link für Screenreader (Best Practice) */
+.skip-link {
+  position: absolute;                                   /* Absolute Positionierung */
+  top: -40px;                                          /* Außerhalb des sichtbaren Bereichs */
+  left: 6px;                                           /* Links positioniert */
+  background: #000;                                    /* Schwarzer Hintergrund */
+  color: white;                                        /* Weiße Schrift */
+  padding: 8px;                                        /* Innenabstand */
+  text-decoration: none;                               /* Keine Unterstreichung */
+  z-index: 9999;                                       /* Über allem anderen */
+}
+
+.skip-link:focus {
+  top: 6px;                                            /* Sichtbar machen bei Fokus */
+}
+
+/* Screen Reader nur Inhalte */
+.sr-only {
+  position: absolute;                                   /* Absolute Positionierung */
+  width: 1px;                                          /* Minimal sichtbar für Browser */
+  height: 1px;                                         /* Minimal sichtbar für Browser */
+  padding: 0;                                          /* Kein Innenabstand */
+  margin: -1px;                                        /* Negativer Außenabstand */
+  overflow: hidden;                                    /* Versteckt Überlauf */
+  clip: rect(0, 0, 0, 0);                             /* Clippt sichtbaren Bereich */
+  white-space: nowrap;                                 /* Verhindert Zeilenumbruch */
+  border: 0;                                           /* Kein Rahmen */
+}
+
+/* Focus Management für bessere Tastaturnavigation */
+.feature-card:focus-within,
+.tech-item:focus-within,
+.about-section:focus-within {
+  outline: 2px solid #3498db;                          /* Sichtbarer Fokus-Rahmen */
+  outline-offset: 2px;                                 /* Abstand zum Element */
+}
+
+/* ========================================
+   DARK MODE VORBEREITUNG (Zukunftssicher)
+   ======================================== */
+
+/* CSS Custom Properties für Theme-Switching */
+:root {
+  --theme-bg: #ffffff;                                  /* Helle Theme Hintergrundfarbe */
+  --theme-text: #333333;                               /* Helle Theme Textfarbe */
+  --theme-border: #e1e8ed;                             /* Helle Theme Rahmenfarbe */
+}
+
+/* Dark Mode Media Query (automatisch bei System-Einstellung) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --theme-bg: #1a1a1a;                               /* Dunkle Theme Hintergrundfarbe */
+    --theme-text: #ffffff;                             /* Dunkle Theme Textfarbe */
+    --theme-border: #404040;                           /* Dunkle Theme Rahmenfarbe */
+  }
+  
+  /* Hero Section Dark Mode Anpassung */
+  .hero-section {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%); /* Dunklerer Gradient */
   }
 }
