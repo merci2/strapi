@@ -1,6 +1,7 @@
+/* react-frontend/src/styles/page-styles.css */
+
 /* ========================================
-   SPEZIFISCHE STYLES FÜR HOME UND ABOUT SEITEN
-   Diese Styles ergänzen die globalen Responsive-Fixes
+   SPEZIFISCHE STYLES FÜR HOME, ABOUT UND CONTACT SEITEN
    ======================================== */
 
 /* ========================================
@@ -68,6 +69,7 @@
   margin-left: auto;
   margin-right: auto;
   line-height: 1.6;
+  text-align: left; /* About-Lead linksbündig */
 }
 
 /* About Content Sections */
@@ -176,6 +178,45 @@
 }
 
 /* ========================================
+   CONTACT PAGE STYLES
+   ======================================== */
+
+/* Contact Header - gleicher Stil wie About Header */
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-lead {
+  font-size: 1.4rem;
+  color: #7f8c8d;
+  margin-top: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  text-align: center; /* Contact-Lead zentriert */
+}
+
+/* Contact Info Box - bleibt wie bisher */
+.contact-info {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+  margin-top: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* ========================================
    RESPONSIVE ANPASSUNGEN
    ======================================== */
 
@@ -197,6 +238,10 @@
   .tech-grid {
     gap: 40px;
   }
+  
+  .contact-info {
+    padding: 50px;
+  }
 }
 
 /* Desktop */
@@ -206,6 +251,10 @@
   }
   
   .about-section {
+    padding: 35px;
+  }
+  
+  .contact-info {
     padding: 35px;
   }
 }
@@ -248,6 +297,14 @@
   .tech-item {
     padding: 20px;
   }
+  
+  .contact-header {
+    margin-bottom: 40px;
+  }
+  
+  .contact-info {
+    padding: 30px;
+  }
 }
 
 /* Mobile Landscape */
@@ -274,11 +331,13 @@
     font-size: 0.95rem;
   }
   
-  .about-header {
+  .about-header,
+  .contact-header {
     margin-bottom: 40px;
   }
   
-  .about-lead {
+  .about-lead,
+  .contact-lead {
     font-size: 1.2rem;
   }
   
@@ -303,6 +362,10 @@
   
   .tech-item h4 {
     font-size: 1.2rem;
+  }
+  
+  .contact-info {
+    padding: 25px;
   }
 }
 
@@ -331,11 +394,13 @@
     line-height: 1.6;
   }
   
-  .about-header {
+  .about-header,
+  .contact-header {
     margin-bottom: 30px;
   }
   
-  .about-lead {
+  .about-lead,
+  .contact-lead {
     font-size: 1.1rem;
     margin-top: 15px;
   }
@@ -382,6 +447,15 @@
     padding: 10px 0;
     padding-left: 25px;
   }
+  
+  .contact-info {
+    padding: 20px;
+  }
+  
+  .contact-info p {
+    font-size: 1rem;
+    margin: 15px 0;
+  }
 }
 
 /* ========================================
@@ -407,114 +481,13 @@
     background: #ecf0f1;
     border-left-color: #2980b9;
   }
-}
-
-/* ========================================
-   PRINT STYLES (BONUS)
-   ======================================== */
-
-@media print {
-  .hero-section {
-    background: none !important;
-    color: black !important;
-    box-shadow: none !important;
-    border: 1px solid #ccc;
+  
+  .contact-info {
+    transition: all 0.3s ease;
   }
   
-  .feature-card,
-  .about-section {
-    box-shadow: none !important;
-    border: 1px solid #ddd;
-    page-break-inside: avoid;
-  }
-  
-  .cta-button {
-    border: 1px solid #333;
-    background: none !important;
-    color: black !important;
-  }
-}
-
-/* ========================================
-   ACCESSIBILITY VERBESSERUNGEN
-   ======================================== */
-
-/* Focus States für bessere Zugänglichkeit */
-.feature-card:focus-within,
-.tech-item:focus-within,
-.about-section:focus-within {
-  outline: 2px solid #3498db;
-  outline-offset: 2px;
-}
-
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-  .feature-card {
-    border: 2px solid #000;
-  }
-  
-  .tech-item {
-    border-left-width: 6px;
-  }
-  
-  .about-section h2 {
-    border-bottom-width: 3px;
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  .feature-card,
-  .about-section,
-  .tech-item {
-    transition: none;
-  }
-  
-  .feature-card:hover,
-  .about-section:hover,
-  .tech-item:hover {
-    transform: none;
-  }
-}
-
-/* ========================================
-   DARK MODE SUPPORT (ZUKÜNFTIG)
-   ======================================== */
-
-@media (prefers-color-scheme: dark) {
-  .feature-card,
-  .about-section {
-    background: #2c3e50;
-    color: #ecf0f1;
-    border-color: #34495e;
-  }
-  
-  .feature-card h3,
-  .about-section h2 {
-    color: #ecf0f1;
-  }
-  
-  .feature-card p,
-  .about-section p {
-    color: #bdc3c7;
-  }
-  
-  .tech-item {
-    background: #34495e;
-    color: #ecf0f1;
-  }
-  
-  .tech-item li {
-    color: #bdc3c7;
-    border-bottom-color: #4a5568;
-  }
-  
-  .goals-list li {
-    color: #bdc3c7;
-    border-bottom-color: #4a5568;
-  }
-  
-  .about-lead {
-    color: #bdc3c7;
+  .contact-info:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
   }
 }

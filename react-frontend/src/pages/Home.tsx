@@ -5,7 +5,7 @@ const Home: React.FC = () => {
   return (
     <div className="page-container">
       <div className="hero-section">
-        <h1>🗪 AI Chatbots</h1>
+        <h1>💬 AI Chatbots</h1>
         <div className="hero-subtitle">
           <p>Tests, also incl. RAG solutions:</p>
           <ul>

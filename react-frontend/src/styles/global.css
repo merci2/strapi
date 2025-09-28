@@ -21,8 +21,8 @@ html {
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f8f9fa;
+  color: #ecf0f1;/* #333; */
+  background-color: #f8f9fa; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -156,7 +156,7 @@ a:hover {
 .hero-section {
   text-align: center;
   padding: 100px 40px; /* Mehr Padding für Desktop */
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background:#2c3e50;
   color: white;
   border-radius: 20px;
   margin-bottom: 50px;
