@@ -1,125 +1,126 @@
 /* react-frontend/src/styles/page-styles.css */
-/* UMGESTELLT AUF DESIGN-TOKENS */
 
 /* ========================================
-   HOME PAGE STYLES - MIT DESIGN-TOKENS
+   HOME PAGE STYLES - DARK MODE + ZENTRIERT
    ======================================== */
 
+/* Content Section nach Hero */
 .content-section {
-  margin-top: var(--space-4xl);                     /* 60px über Token */
+  margin-top: 60px;
 }
 
+/* Feature Grid für Homepage */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--space-xl);                             /* 30px über Token */
-  margin-top: var(--space-2xl);                     /* 40px über Token */
+  gap: 30px;
+  margin-top: 40px;
+  justify-items: center;                /* Zentriert die Grid-Items */
 }
 
 .feature-card {
-  background: var(--bg-secondary);                  /* #2c3e50 über Token */
-  padding: var(--card-padding);                     /* 40px 30px über Token */
-  border-radius: var(--radius-xl);                  /* 15px über Token */
-  box-shadow: var(--shadow-dark-md);                /* Dark Mode Schatten über Token */
-  text-align: center;
-  transition: all var(--transition-normal);         /* 0.3s ease über Token */
-  border: 1px solid var(--border-primary);          /* #34495e über Token */
+  background: #2c3e50;                  /* Dark Mode Hintergrund */
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  text-align: center;                   /* Text in Cards zentriert */
+  transition: all 0.3s ease;
+  border: 1px solid #34495e;            /* Dark Mode Rahmen */
+  width: 100%;                          /* Volle Breite innerhalb des Grid-Items */
+  max-width: 400px;                     /* Maximale Breite für bessere Optik */
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: var(--shadow-dark-lg);                /* Stärkerer Schatten über Token */
-  border-color: var(--color-primary);               /* #3498db über Token */
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  border-color: #3498db;
 }
 
 .feature-card h3 {
-  font-size: var(--font-size-2xl);                  /* 1.5rem über Token */
-  margin-bottom: var(--space-lg);                   /* 20px über Token */
-  color: var(--text-primary);                       /* #ecf0f1 über Token */
-  font-weight: var(--font-weight-semibold);         /* 600 über Token */
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #ecf0f1;                       /* Helle Überschrift (Dark Mode) */
+  font-weight: 600;
 }
 
 .feature-card p {
-  color: var(--text-secondary);                     /* #bdc3c7 über Token */
-  line-height: var(--line-height-relaxed);          /* 1.7 über Token */
-  font-size: var(--font-size-lg);                   /* 1.1rem über Token */
+  color: #bdc3c7;                       /* Heller Text (Dark Mode) */
+  line-height: 1.7;
+  font-size: 1.1rem;
   margin: 0;
 }
 
 /* ========================================
-   ABOUT PAGE STYLES - MIT DESIGN-TOKENS
+   ABOUT PAGE STYLES - DARK MODE
    ======================================== */
 
-.about-header,
-.contact-header {
+/* About Header */
+.about-header {
   text-align: center;
-  margin-bottom: var(--space-4xl);                  /* 60px über Token */
+  margin-bottom: 60px;
 }
 
-.about-lead,
-.contact-lead {
-  font-size: var(--font-size-xl);                   /* 1.4rem über Token */
-  color: var(--text-secondary);                     /* #bdc3c7 über Token */
-  margin-top: var(--space-lg);                      /* 20px über Token */
+.about-lead {
+  font-size: 1.4rem;
+  color: #bdc3c7;                       /* Heller Text (Dark Mode) */
+  margin-top: 20px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  line-height: var(--line-height-normal);           /* 1.6 über Token */
-  text-align: left;
+  line-height: 1.6;
+  text-align: left;                     /* About-Lead linksbündig */
 }
 
+/* About Content Sections */
 .about-content {
   max-width: 900px;
   margin: 0 auto;
 }
 
 .about-section {
-  margin-bottom: var(--space-3xl);                  /* 50px über Token */
-  background: var(--bg-secondary);                  /* #2c3e50 über Token */
-  padding: var(--space-2xl);                        /* 40px über Token */
-  border-radius: var(--radius-xl);                  /* 15px über Token */
-  box-shadow: var(--shadow-dark-sm);                /* Dark Mode Schatten über Token */
-  border: 1px solid var(--border-primary);          /* #34495e über Token */
+  margin-bottom: 50px;
+  background: #2c3e50;                  /* Dark Mode Hintergrund */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.2);
+  border: 1px solid #34495e;            /* Dark Mode Rahmen */
 }
 
 .about-section h2 {
-  font-size: var(--font-size-3xl);                  /* 2rem über Token */
-  margin-bottom: var(--space-lg);                   /* 25px über Token */
-  color: var(--text-primary);                       /* #ecf0f1 über Token */
-  border-bottom: 2px solid var(--color-primary);    /* #3498db über Token */
-  padding-bottom: var(--space-sm);                  /* 10px über Token */
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #ecf0f1;                       /* Helle Überschrift (Dark Mode) */
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
 }
 
 .about-section p {
-  color: var(--text-secondary);                     /* #bdc3c7 über Token */
-  line-height: var(--line-height-loose);            /* 1.8 über Token */
-  margin-bottom: var(--space-lg);                   /* 20px über Token */
+  color: #bdc3c7;                       /* Heller Text (Dark Mode) */
+  line-height: 1.8;
+  margin-bottom: 20px;
 }
 
-/* ========================================
-   TECHNOLOGY GRID - MIT DESIGN-TOKENS
-   ======================================== */
-
+/* Technology Grid */
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--space-xl);                             /* 30px über Token */
-  margin-top: var(--space-xl);                      /* 30px über Token */
+  gap: 30px;
+  margin-top: 30px;
 }
 
 .tech-item {
-  background: var(--bg-tertiary);                   /* #34495e über Token */
-  padding: var(--space-lg);                         /* 25px über Token */
-  border-radius: var(--radius-md);                  /* 10px über Token */
-  border-left: 4px solid var(--color-primary);      /* #3498db über Token */
-  border: 1px solid var(--border-secondary);        /* #4a5568 über Token */
+  background: #34495e;                  /* Dunklerer Hintergrund (Dark Mode) */
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #3498db;
+  border: 1px solid #4a5568;            /* Dark Mode Rahmen */
 }
 
 .tech-item h4 {
-  font-size: var(--font-size-xl);                   /* 1.3rem über Token */
-  margin-bottom: var(--space-md);                   /* 15px über Token */
-  color: var(--text-primary);                       /* #ecf0f1 über Token */
-  font-weight: var(--font-weight-semibold);         /* 600 über Token */
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #ecf0f1;                       /* Helle Überschrift (Dark Mode) */
+  font-weight: 600;
 }
 
 .tech-item ul {
@@ -129,18 +130,18 @@
 }
 
 .tech-item li {
-  padding: var(--space-sm) 0;                       /* 8px 0 über Token */
-  color: var(--text-secondary);                     /* #bdc3c7 über Token */
-  font-size: var(--font-size-base);                 /* 1rem über Token */
-  border-bottom: 1px solid var(--border-secondary); /* #4a5568 über Token */
+  padding: 8px 0;
+  color: #bdc3c7;                       /* Heller Text (Dark Mode) */
+  font-size: 1rem;
+  border-bottom: 1px solid #4a5568;     /* Dark Mode Trennlinie */
   position: relative;
-  padding-left: var(--space-lg);                    /* 20px über Token */
+  padding-left: 20px;
 }
 
 .tech-item li:before {
   content: "✓";
-  color: var(--color-success);                      /* #27ae60 über Token */
-  font-weight: var(--font-weight-bold);             /* 700 über Token */
+  color: #27ae60;                       /* Grün bleibt */
+  font-weight: bold;
   position: absolute;
   left: 0;
 }
@@ -149,31 +150,28 @@
   border-bottom: none;
 }
 
-/* ========================================
-   GOALS LIST - MIT DESIGN-TOKENS
-   ======================================== */
-
+/* Goals List */
 .goals-list {
   list-style: none;
   padding: 0;
-  margin-top: var(--space-lg);                      /* 20px über Token */
+  margin-top: 20px;
 }
 
 .goals-list li {
-  padding: var(--space-sm) 0;                       /* 12px 0 über Token */
-  padding-left: var(--space-xl);                    /* 30px über Token */
+  padding: 12px 0;
+  padding-left: 30px;
   position: relative;
-  color: var(--text-secondary);                     /* #bdc3c7 über Token */
-  font-size: var(--font-size-lg);                   /* 1.1rem über Token */
-  line-height: var(--line-height-normal);           /* 1.6 über Token */
-  border-bottom: 1px solid var(--border-secondary); /* #4a5568 über Token */
+  color: #bdc3c7;                       /* Heller Text (Dark Mode) */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  border-bottom: 1px solid #4a5568;     /* Dark Mode Trennlinie */
 }
 
 .goals-list li:before {
   content: "🎯";
   position: absolute;
   left: 0;
-  top: var(--space-sm);                             /* 12px über Token */
+  top: 12px;
 }
 
 .goals-list li:last-child {
@@ -181,119 +179,369 @@
 }
 
 /* ========================================
-   CONTACT INFO - MIT DESIGN-TOKENS
+   CONTACT PAGE STYLES - DARK MODE
    ======================================== */
 
-.contact-info {
-  background: var(--bg-secondary);                  /* #2c3e50 über Token */
-  padding: var(--space-2xl);                        /* 40px über Token */
-  border-radius: var(--radius-xl);                  /* 15px über Token */
-  box-shadow: var(--shadow-dark-md);                /* Dark Mode Schatten über Token */
-  margin-top: var(--space-2xl);                     /* 40px über Token */
+/* Contact Header */
+.contact-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contact-lead {
+  font-size: 1.4rem;
+  color: #bdc3c7;                       /* Heller Text (Dark Mode) */
+  margin-top: 20px;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid var(--border-primary);          /* #34495e über Token */
+  line-height: 1.6;
+  text-align: left;                     /* Contact-Lead linksbündig */
+}
+
+/* Contact Info - Dark Mode */
+.contact-info {
+  background: #2c3e50;                  /* Dark Mode Hintergrund */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+  margin-top: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #34495e;            /* Dark Mode Rahmen */
 }
 
 .contact-info p {
-  margin: var(--space-lg) 0;                        /* 20px 0 über Token */
-  font-size: var(--font-size-lg);                   /* 1.2rem über Token */
-  line-height: var(--line-height-normal);           /* 1.6 über Token */
-  color: var(--text-secondary);                     /* #bdc3c7 über Token */
+  margin: 20px 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #bdc3c7;                       /* Heller Text (Dark Mode) */
 }
 
 /* ========================================
-   RESPONSIVE MIT DESIGN-TOKENS
+   RESPONSIVE ANPASSUNGEN
    ======================================== */
 
 /* Large Desktop */
 @media (min-width: 1200px) {
   .feature-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-2xl);                          /* 40px über Token */
+    gap: 40px;
   }
   
   .feature-card {
-    padding: var(--space-3xl) var(--space-2xl);     /* 50px 40px über Token */
+    padding: 50px 40px;
   }
   
   .about-section {
-    padding: var(--space-3xl);                      /* 50px über Token */
+    padding: 50px;
   }
   
   .tech-grid {
-    gap: var(--space-2xl);                          /* 40px über Token */
+    gap: 40px;
   }
   
   .contact-info {
-    padding: var(--space-3xl);                      /* 50px über Token */
+    padding: 50px;
   }
 }
 
 /* Desktop */
 @media (min-width: 992px) and (max-width: 1199px) {
   .feature-card {
-    padding: var(--space-2xl) var(--space-lg);      /* 35px 25px über Token */
+    padding: 35px 25px;
   }
   
   .about-section {
-    padding: var(--space-2xl);                      /* 35px über Token */
+    padding: 35px;
   }
   
   .contact-info {
-    padding: var(--space-2xl);                      /* 35px über Token */
+    padding: 35px;
   }
 }
 
-/* Mobile */
-@media (max-width: 575px) {
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-section {
+    margin-top: 40px;
+  }
+  
+  .feature-grid {
+    gap: 25px;
+  }
+  
   .feature-card {
-    padding: var(--card-padding-mobile);            /* 20px 15px über Token */
+    padding: 30px 25px;
   }
   
   .feature-card h3 {
-    font-size: var(--font-size-xl);                 /* 1.2rem über Token */
-    margin-bottom: var(--space-sm);                 /* 12px über Token */
+    font-size: 1.4rem;
   }
   
   .feature-card p {
-    font-size: var(--font-size-sm);                 /* 0.9rem über Token */
+    font-size: 1rem;
   }
   
   .about-section {
-    padding: var(--space-lg);                       /* 20px über Token */
-    margin-bottom: var(--space-lg);                 /* 25px über Token */
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .tech-grid {
+    gap: 25px;
+  }
+  
+  .tech-item {
+    padding: 20px;
+  }
+  
+  .contact-header {
+    margin-bottom: 40px;
   }
   
   .contact-info {
-    padding: var(--space-lg);                       /* 20px über Token */
+    padding: 30px;
+  }
+}
+
+/* Mobile Landscape */
+@media (min-width: 576px) and (max-width: 767px) {
+  .content-section {
+    margin-top: 30px;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 25px 20px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+  
+  .about-header,
+  .contact-header {
+    margin-bottom: 40px;
+  }
+  
+  .about-lead,
+  .contact-lead {
+    font-size: 1.2rem;
+  }
+  
+  .about-section {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .tech-item {
+    padding: 18px;
+  }
+  
+  .tech-item h4 {
+    font-size: 1.2rem;
+  }
+  
+  .contact-info {
+    padding: 25px;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 575px) {
+  .content-section {
+    margin-top: 25px;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .feature-card {
+    padding: 20px 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .about-header,
+  .contact-header {
+    margin-bottom: 30px;
+  }
+  
+  .about-lead,
+  .contact-lead {
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+  
+  .about-section {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+  
+  .about-section p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .tech-item {
+    padding: 15px;
+  }
+  
+  .tech-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .tech-item li {
+    font-size: 0.9rem;
+    padding: 6px 0;
+    padding-left: 18px;
+  }
+  
+  .goals-list li {
+    font-size: 1rem;
+    padding: 10px 0;
+    padding-left: 25px;
+  }
+  
+  .contact-info {
+    padding: 20px;
   }
   
   .contact-info p {
-    font-size: var(--font-size-base);               /* 1rem über Token */
-    margin: var(--space-md) 0;                      /* 15px 0 über Token */
+    font-size: 1rem;
+    margin: 15px 0;
   }
 }
 
 /* ========================================
-   HOVER-EFFEKTE MIT DESIGN-TOKENS
+   HOVER-EFFEKTE FÜR DESKTOP (DARK MODE)
    ======================================== */
 
 @media (min-width: 992px) {
+  .about-section {
+    transition: all 0.3s ease;
+  }
+  
   .about-section:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-dark-lg);              /* Stärkerer Schatten über Token */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  
+  .tech-item {
+    transition: all 0.3s ease;
   }
   
   .tech-item:hover {
     transform: translateY(-2px);
-    background: var(--border-secondary);            /* #4a5568 über Token */
-    border-left-color: var(--color-primary-light);  /* #5dade2 über Token */
+    background: #4a5568;                 /* Dunklerer Hover (Dark Mode) */
+    border-left-color: #5dade2;          /* Helleres Blau */
+  }
+  
+  .contact-info {
+    transition: all 0.3s ease;
   }
   
   .contact-info:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-dark-lg);              /* Stärkerer Schatten über Token */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY & PRINT
+   ======================================== */
+
+/* Focus States */
+.feature-card:focus-within,
+.tech-item:focus-within,
+.about-section:focus-within {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .feature-card,
+  .about-section {
+    border: 2px solid #ecf0f1 !important;
+  }
+  
+  .tech-item {
+    border-left-width: 6px;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .about-section,
+  .tech-item {
+    transition: none;
+  }
+  
+  .feature-card:hover,
+  .about-section:hover,
+  .tech-item:hover {
+    transform: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .feature-card,
+  .about-section {
+    background: white !important;
+    color: black !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+    page-break-inside: avoid;
   }
 }
