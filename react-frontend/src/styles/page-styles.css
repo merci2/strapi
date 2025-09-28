@@ -1,125 +1,125 @@
 /* react-frontend/src/styles/page-styles.css */
+/* UMGESTELLT AUF DESIGN-TOKENS */
 
 /* ========================================
-   SPEZIFISCHE STYLES FÜR HOME, ABOUT UND CONTACT SEITEN
+   HOME PAGE STYLES - MIT DESIGN-TOKENS
    ======================================== */
 
-/* ========================================
-   HOME PAGE STYLES
-   ======================================== */
-
-/* Content Section nach Hero */
 .content-section {
-  margin-top: 60px;
+  margin-top: var(--space-4xl);                     /* 60px über Token */
 }
 
-/* Feature Grid für Homepage */
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
+  gap: var(--space-xl);                             /* 30px über Token */
+  margin-top: var(--space-2xl);                     /* 40px über Token */
 }
 
 .feature-card {
-  background: white;
-  padding: 40px 30px;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  background: var(--bg-secondary);                  /* #2c3e50 über Token */
+  padding: var(--card-padding);                     /* 40px 30px über Token */
+  border-radius: var(--radius-xl);                  /* 15px über Token */
+  box-shadow: var(--shadow-dark-md);                /* Dark Mode Schatten über Token */
   text-align: center;
-  transition: all 0.3s ease;
-  border: 1px solid #f0f0f0;
+  transition: all var(--transition-normal);         /* 0.3s ease über Token */
+  border: 1px solid var(--border-primary);          /* #34495e über Token */
 }
 
 .feature-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
-  border-color: #3498db;
+  box-shadow: var(--shadow-dark-lg);                /* Stärkerer Schatten über Token */
+  border-color: var(--color-primary);               /* #3498db über Token */
 }
 
 .feature-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
-  font-weight: 600;
+  font-size: var(--font-size-2xl);                  /* 1.5rem über Token */
+  margin-bottom: var(--space-lg);                   /* 20px über Token */
+  color: var(--text-primary);                       /* #ecf0f1 über Token */
+  font-weight: var(--font-weight-semibold);         /* 600 über Token */
 }
 
 .feature-card p {
-  color: #7f8c8d;
-  line-height: 1.7;
-  font-size: 1.1rem;
+  color: var(--text-secondary);                     /* #bdc3c7 über Token */
+  line-height: var(--line-height-relaxed);          /* 1.7 über Token */
+  font-size: var(--font-size-lg);                   /* 1.1rem über Token */
   margin: 0;
 }
 
 /* ========================================
-   ABOUT PAGE STYLES
+   ABOUT PAGE STYLES - MIT DESIGN-TOKENS
    ======================================== */
 
-/* About Header */
-.about-header {
+.about-header,
+.contact-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: var(--space-4xl);                  /* 60px über Token */
 }
 
-.about-lead {
-  font-size: 1.4rem;
-  color: #7f8c8d;
-  margin-top: 20px;
+.about-lead,
+.contact-lead {
+  font-size: var(--font-size-xl);                   /* 1.4rem über Token */
+  color: var(--text-secondary);                     /* #bdc3c7 über Token */
+  margin-top: var(--space-lg);                      /* 20px über Token */
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
-  text-align: left; /* About-Lead linksbündig */
+  line-height: var(--line-height-normal);           /* 1.6 über Token */
+  text-align: left;
 }
 
-/* About Content Sections */
 .about-content {
   max-width: 900px;
   margin: 0 auto;
 }
 
 .about-section {
-  margin-bottom: 50px;
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+  margin-bottom: var(--space-3xl);                  /* 50px über Token */
+  background: var(--bg-secondary);                  /* #2c3e50 über Token */
+  padding: var(--space-2xl);                        /* 40px über Token */
+  border-radius: var(--radius-xl);                  /* 15px über Token */
+  box-shadow: var(--shadow-dark-sm);                /* Dark Mode Schatten über Token */
+  border: 1px solid var(--border-primary);          /* #34495e über Token */
 }
 
 .about-section h2 {
-  font-size: 2rem;
-  margin-bottom: 25px;
-  color: #2c3e50;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 10px;
+  font-size: var(--font-size-3xl);                  /* 2rem über Token */
+  margin-bottom: var(--space-lg);                   /* 25px über Token */
+  color: var(--text-primary);                       /* #ecf0f1 über Token */
+  border-bottom: 2px solid var(--color-primary);    /* #3498db über Token */
+  padding-bottom: var(--space-sm);                  /* 10px über Token */
 }
 
 .about-section p {
-  color: #34495e;
-  line-height: 1.8;
-  margin-bottom: 20px;
+  color: var(--text-secondary);                     /* #bdc3c7 über Token */
+  line-height: var(--line-height-loose);            /* 1.8 über Token */
+  margin-bottom: var(--space-lg);                   /* 20px über Token */
 }
 
-/* Technology Grid */
+/* ========================================
+   TECHNOLOGY GRID - MIT DESIGN-TOKENS
+   ======================================== */
+
 .tech-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  margin-top: 30px;
+  gap: var(--space-xl);                             /* 30px über Token */
+  margin-top: var(--space-xl);                      /* 30px über Token */
 }
 
 .tech-item {
-  background: #f8f9fa;
-  padding: 25px;
-  border-radius: 10px;
-  border-left: 4px solid #3498db;
+  background: var(--bg-tertiary);                   /* #34495e über Token */
+  padding: var(--space-lg);                         /* 25px über Token */
+  border-radius: var(--radius-md);                  /* 10px über Token */
+  border-left: 4px solid var(--color-primary);      /* #3498db über Token */
+  border: 1px solid var(--border-secondary);        /* #4a5568 über Token */
 }
 
 .tech-item h4 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: #2c3e50;
-  font-weight: 600;
+  font-size: var(--font-size-xl);                   /* 1.3rem über Token */
+  margin-bottom: var(--space-md);                   /* 15px über Token */
+  color: var(--text-primary);                       /* #ecf0f1 über Token */
+  font-weight: var(--font-weight-semibold);         /* 600 über Token */
 }
 
 .tech-item ul {
@@ -129,18 +129,18 @@
 }
 
 .tech-item li {
-  padding: 8px 0;
-  color: #7f8c8d;
-  font-size: 1rem;
-  border-bottom: 1px solid #ecf0f1;
+  padding: var(--space-sm) 0;                       /* 8px 0 über Token */
+  color: var(--text-secondary);                     /* #bdc3c7 über Token */
+  font-size: var(--font-size-base);                 /* 1rem über Token */
+  border-bottom: 1px solid var(--border-secondary); /* #4a5568 über Token */
   position: relative;
-  padding-left: 20px;
+  padding-left: var(--space-lg);                    /* 20px über Token */
 }
 
 .tech-item li:before {
   content: "✓";
-  color: #27ae60;
-  font-weight: bold;
+  color: var(--color-success);                      /* #27ae60 über Token */
+  font-weight: var(--font-weight-bold);             /* 700 über Token */
   position: absolute;
   left: 0;
 }
@@ -149,28 +149,31 @@
   border-bottom: none;
 }
 
-/* Goals List */
+/* ========================================
+   GOALS LIST - MIT DESIGN-TOKENS
+   ======================================== */
+
 .goals-list {
   list-style: none;
   padding: 0;
-  margin-top: 20px;
+  margin-top: var(--space-lg);                      /* 20px über Token */
 }
 
 .goals-list li {
-  padding: 12px 0;
-  padding-left: 30px;
+  padding: var(--space-sm) 0;                       /* 12px 0 über Token */
+  padding-left: var(--space-xl);                    /* 30px über Token */
   position: relative;
-  color: #34495e;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  border-bottom: 1px solid #ecf0f1;
+  color: var(--text-secondary);                     /* #bdc3c7 über Token */
+  font-size: var(--font-size-lg);                   /* 1.1rem über Token */
+  line-height: var(--line-height-normal);           /* 1.6 über Token */
+  border-bottom: 1px solid var(--border-secondary); /* #4a5568 über Token */
 }
 
 .goals-list li:before {
   content: "🎯";
   position: absolute;
   left: 0;
-  top: 12px;
+  top: var(--space-sm);                             /* 12px über Token */
 }
 
 .goals-list li:last-child {
@@ -178,316 +181,119 @@
 }
 
 /* ========================================
-   CONTACT PAGE STYLES
+   CONTACT INFO - MIT DESIGN-TOKENS
    ======================================== */
 
-/* Contact Header - gleicher Stil wie About Header */
-.contact-header {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.contact-lead {
-  font-size: 1.4rem;
-  color: #7f8c8d;
-  margin-top: 20px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-  text-align: center; /* Contact-Lead zentriert */
-}
-
-/* Contact Info Box - bleibt wie bisher */
 .contact-info {
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-  margin-top: 40px;
+  background: var(--bg-secondary);                  /* #2c3e50 über Token */
+  padding: var(--space-2xl);                        /* 40px über Token */
+  border-radius: var(--radius-xl);                  /* 15px über Token */
+  box-shadow: var(--shadow-dark-md);                /* Dark Mode Schatten über Token */
+  margin-top: var(--space-2xl);                     /* 40px über Token */
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  border: 1px solid var(--border-primary);          /* #34495e über Token */
 }
 
 .contact-info p {
-  margin: 20px 0;
-  font-size: 1.2rem;
-  line-height: 1.6;
+  margin: var(--space-lg) 0;                        /* 20px 0 über Token */
+  font-size: var(--font-size-lg);                   /* 1.2rem über Token */
+  line-height: var(--line-height-normal);           /* 1.6 über Token */
+  color: var(--text-secondary);                     /* #bdc3c7 über Token */
 }
 
 /* ========================================
-   RESPONSIVE ANPASSUNGEN
+   RESPONSIVE MIT DESIGN-TOKENS
    ======================================== */
 
 /* Large Desktop */
 @media (min-width: 1200px) {
   .feature-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: var(--space-2xl);                          /* 40px über Token */
   }
   
   .feature-card {
-    padding: 50px 40px;
+    padding: var(--space-3xl) var(--space-2xl);     /* 50px 40px über Token */
   }
   
   .about-section {
-    padding: 50px;
+    padding: var(--space-3xl);                      /* 50px über Token */
   }
   
   .tech-grid {
-    gap: 40px;
+    gap: var(--space-2xl);                          /* 40px über Token */
   }
   
   .contact-info {
-    padding: 50px;
+    padding: var(--space-3xl);                      /* 50px über Token */
   }
 }
 
 /* Desktop */
 @media (min-width: 992px) and (max-width: 1199px) {
   .feature-card {
-    padding: 35px 25px;
+    padding: var(--space-2xl) var(--space-lg);      /* 35px 25px über Token */
   }
   
   .about-section {
-    padding: 35px;
+    padding: var(--space-2xl);                      /* 35px über Token */
   }
   
   .contact-info {
-    padding: 35px;
+    padding: var(--space-2xl);                      /* 35px über Token */
   }
 }
 
-/* Tablet */
-@media (min-width: 768px) and (max-width: 991px) {
-  .content-section {
-    margin-top: 40px;
-  }
-  
-  .feature-grid {
-    gap: 25px;
-  }
-  
-  .feature-card {
-    padding: 30px 25px;
-  }
-  
-  .feature-card h3 {
-    font-size: 1.4rem;
-  }
-  
-  .feature-card p {
-    font-size: 1rem;
-  }
-  
-  .about-section {
-    padding: 30px;
-    margin-bottom: 40px;
-  }
-  
-  .about-section h2 {
-    font-size: 1.8rem;
-  }
-  
-  .tech-grid {
-    gap: 25px;
-  }
-  
-  .tech-item {
-    padding: 20px;
-  }
-  
-  .contact-header {
-    margin-bottom: 40px;
-  }
-  
-  .contact-info {
-    padding: 30px;
-  }
-}
-
-/* Mobile Landscape */
-@media (min-width: 576px) and (max-width: 767px) {
-  .content-section {
-    margin-top: 30px;
-  }
-  
-  .feature-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .feature-card {
-    padding: 25px 20px;
-  }
-  
-  .feature-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 15px;
-  }
-  
-  .feature-card p {
-    font-size: 0.95rem;
-  }
-  
-  .about-header,
-  .contact-header {
-    margin-bottom: 40px;
-  }
-  
-  .about-lead,
-  .contact-lead {
-    font-size: 1.2rem;
-  }
-  
-  .about-section {
-    padding: 25px;
-    margin-bottom: 30px;
-  }
-  
-  .about-section h2 {
-    font-size: 1.6rem;
-    margin-bottom: 20px;
-  }
-  
-  .tech-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .tech-item {
-    padding: 18px;
-  }
-  
-  .tech-item h4 {
-    font-size: 1.2rem;
-  }
-  
-  .contact-info {
-    padding: 25px;
-  }
-}
-
-/* Mobile Portrait */
+/* Mobile */
 @media (max-width: 575px) {
-  .content-section {
-    margin-top: 25px;
-  }
-  
-  .feature-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
   .feature-card {
-    padding: 20px 15px;
+    padding: var(--card-padding-mobile);            /* 20px 15px über Token */
   }
   
   .feature-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+    font-size: var(--font-size-xl);                 /* 1.2rem über Token */
+    margin-bottom: var(--space-sm);                 /* 12px über Token */
   }
   
   .feature-card p {
-    font-size: 0.9rem;
-    line-height: 1.6;
-  }
-  
-  .about-header,
-  .contact-header {
-    margin-bottom: 30px;
-  }
-  
-  .about-lead,
-  .contact-lead {
-    font-size: 1.1rem;
-    margin-top: 15px;
+    font-size: var(--font-size-sm);                 /* 0.9rem über Token */
   }
   
   .about-section {
-    padding: 20px;
-    margin-bottom: 25px;
-  }
-  
-  .about-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 18px;
-  }
-  
-  .about-section p {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    margin-bottom: 15px;
-  }
-  
-  .tech-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    margin-top: 20px;
-  }
-  
-  .tech-item {
-    padding: 15px;
-  }
-  
-  .tech-item h4 {
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-  }
-  
-  .tech-item li {
-    font-size: 0.9rem;
-    padding: 6px 0;
-    padding-left: 18px;
-  }
-  
-  .goals-list li {
-    font-size: 1rem;
-    padding: 10px 0;
-    padding-left: 25px;
+    padding: var(--space-lg);                       /* 20px über Token */
+    margin-bottom: var(--space-lg);                 /* 25px über Token */
   }
   
   .contact-info {
-    padding: 20px;
+    padding: var(--space-lg);                       /* 20px über Token */
   }
   
   .contact-info p {
-    font-size: 1rem;
-    margin: 15px 0;
+    font-size: var(--font-size-base);               /* 1rem über Token */
+    margin: var(--space-md) 0;                      /* 15px 0 über Token */
   }
 }
 
 /* ========================================
-   SPEZIELLE HOVER-EFFEKTE FÜR DESKTOP
+   HOVER-EFFEKTE MIT DESIGN-TOKENS
    ======================================== */
 
 @media (min-width: 992px) {
-  .about-section {
-    transition: all 0.3s ease;
-  }
-  
   .about-section:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-  }
-  
-  .tech-item {
-    transition: all 0.3s ease;
+    box-shadow: var(--shadow-dark-lg);              /* Stärkerer Schatten über Token */
   }
   
   .tech-item:hover {
     transform: translateY(-2px);
-    background: #ecf0f1;
-    border-left-color: #2980b9;
-  }
-  
-  .contact-info {
-    transition: all 0.3s ease;
+    background: var(--border-secondary);            /* #4a5568 über Token */
+    border-left-color: var(--color-primary-light);  /* #5dade2 über Token */
   }
   
   .contact-info:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: var(--shadow-dark-lg);              /* Stärkerer Schatten über Token */
   }
 }

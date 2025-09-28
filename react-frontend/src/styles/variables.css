@@ -1,303 +1,215 @@
-/* src/styles/blog-detail.css */
+/* react-frontend/src/styles/variables.css */
 
+/* ========================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   Definiert alle wiederverwendbaren Werte
+   ======================================== */
 
-.blog-detail-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-/* Breadcrumb Navigation */
-.breadcrumb {
-  margin-bottom: 30px;
-}
-
-.breadcrumb-link {
-  color: #3498db;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.breadcrumb-link:hover {
-  color: #2980b9;
-}
-
-/* Error State */
-.error-state {
-  text-align: center;
-  padding: 60px 20px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.error-state h2 {
-  color: #e74c3c;
-  margin-bottom: 15px;
-  font-size: 2rem;
-}
-
-.back-to-blog-btn {
-  display: inline-block;
-  background: #3498db;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  margin-top: 20px;
-}
-
-.back-to-blog-btn:hover {
-  background: #2980b9;
-  transform: translateY(-1px);
-  color: white;
-}
-
-.back-to-blog-btn.secondary {
-  background: #95a5a6;
-}
-
-.back-to-blog-btn.secondary:hover {
-  background: #7f8c8d;
-  color: white;
-}
-
-/* Artikel Detail */
-.artikel-detail {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-  overflow: hidden;
-}
-
-/* Hero Image */
-.artikel-hero {
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Artikel Header */
-.artikel-header {
-  padding: 40px;
-  border-bottom: 1px solid #eee;
-}
-
-.kategorie-badge.large {
-  font-size: 0.9rem;
-  padding: 8px 16px;
-  margin-bottom: 20px;
-}
-
-.artikel-titel {
-  font-size: 2.8rem;
-  color: #2c3e50;
-  margin-bottom: 20px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-/* Artikel Meta */
-.artikel-meta {
-  color: #7f8c8d;
-  font-size: 1rem;
-  margin-bottom: 25px;
-}
-
-.update-datum {
-  margin-left: 10px;
-}
-
-/* Lead Paragraph */
-.artikel-lead {
-  font-size: 1.2rem;
-  color: #555;
-  line-height: 1.7;
-  font-weight: 400;
-  margin-top: 20px;
-}
-
-/* Artikel Body */
-.artikel-body {
-  padding: 40px;
-}
-
-.artikel-content {
-  line-height: 1.8;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-/* Rich Text Content Styling */
-.artikel-content h2 {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  color: #2c3e50;
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-.artikel-content h3 {
-  margin-top: 35px;
-  margin-bottom: 15px;
-  color: #34495e;
-  font-size: 1.5rem;
-  font-weight: 600;
-}
-
-.artikel-content h4 {
-  margin-top: 30px;
-  margin-bottom: 12px;
-  color: #34495e;
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.artikel-content p {
-  margin-bottom: 20px;
-  line-height: 1.8;
-}
-
-.artikel-content ul,
-.artikel-content ol {
-  margin: 20px 0;
-  padding-left: 30px;
-}
-
-.artikel-content li {
-  margin-bottom: 8px;
-  line-height: 1.6;
-}
-
-.artikel-content blockquote {
-  border-left: 4px solid #3498db;
-  padding: 20px 0 20px 30px;
-  margin: 30px 0;
-  font-style: italic;
-  color: #555;
-  background: #f8f9fa;
-  border-radius: 0 8px 8px 0;
-}
-
-.artikel-content code {
-  background: #f8f9fa;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  color: #e74c3c;
-}
-
-.artikel-content pre {
-  background: #2c3e50;
-  color: #ecf0f1;
-  padding: 20px;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin: 25px 0;
-}
-
-.artikel-content pre code {
-  background: none;
-  color: inherit;
-  padding: 0;
-}
-
-/* Images in Content */
-.artikel-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-  margin: 25px 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Links in Content */
-.artikel-content a {
-  color: #3498db;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-.artikel-content a:hover {
-  color: #2980b9;
-}
-
-/* Artikel Footer Section */
-.artikel-footer-section {
-  padding: 30px 40px;
-  border-top: 1px solid #eee;
-  background: #f8f9fa;
-}
-
-.article-actions {
-  text-align: center;
-}
-
-/* Mobile Responsive */
-@media (max-width: 768px) {
-  .blog-detail-container {
-    padding: 20px 15px;
-  }
+:root {
+  /* ========================================
+     FARBEN (DARK MODE THEME)
+     ======================================== */
   
-  .artikel-hero {
-    height: 250px;
-  }
+  /* Primärfarben */
+  --color-primary: #3498db;              /* Hauptblau */
+  --color-primary-dark: #2980b9;         /* Dunkles Blau für Hover */
+  --color-primary-light: #5dade2;        /* Helles Blau für Links */
+  --color-primary-lighter: #85c1e9;      /* Noch helleres Blau für Link-Hover */
   
-  .artikel-header {
-    padding: 25px;
-  }
+  /* Sekundärfarben */
+  --color-secondary: #e67e22;            /* Orange für Akzente */
+  --color-secondary-dark: #d35400;       /* Dunkles Orange */
   
-  .artikel-titel {
-    font-size: 2.2rem;
-  }
+  /* Status-Farben */
+  --color-success: #27ae60;              /* Grün für Erfolg */
+  --color-warning: #f39c12;              /* Gelb für Warnungen */
+  --color-error: #e74c3c;                /* Rot für Fehler */
+  --color-info: #3498db;                 /* Blau für Info */
   
-  .artikel-body {
-    padding: 25px;
-  }
+  /* Graustufen (Dark Theme) */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-light: #ecf0f1;                /* Helle Schrift */
+  --color-light-gray: #bdc3c7;           /* Heller Text */
+  --color-gray: #7f8c8d;                 /* Mittleres Grau */
+  --color-dark-gray: #34495e;            /* Dunkles Grau */
+  --color-dark: #2c3e50;                 /* Sehr dunkles Grau */
+  --color-darker: #1a1a1a;               /* Body Hintergrund */
   
-  .artikel-footer-section {
-    padding: 20px 25px;
-  }
+  /* Hintergründe */
+  --bg-primary: #ffffff;                 /* Haupt-Hintergrund: #1a1a1a; */
+  --bg-secondary: #2c3e50;               /* Card-Hintergrund */
+  --bg-tertiary: #34495e;                /* Tech-Item Hintergrund */
+  --bg-accent: #f8f9fa;                  /* Heller Akzent (für Code) */
   
-  .artikel-content {
-    font-size: 1rem;
-  }
+  /* Text-Farben */
+  --text-primary:  #ecf0f1;              /* Haupt-Textfarbe #ecf0f1;*/
+  --text-secondary: #bdc3c7;             /* Sekundärer Text */
+  --text-muted: #7f8c8d;                 /* Gedämpfter Text */
   
-  .artikel-content h2 {
-    font-size: 1.7rem;
-    margin-top: 30px;
-  }
+  /* Rahmen */
+  --border-primary: #34495e;             /* Haupt-Rahmenfarbe */
+  --border-secondary: #4a5568;           /* Sekundäre Rahmenfarbe */
+  --border-light: #ecf0f1;               /* Helle Rahmen */
   
-  .artikel-content h3 {
-    font-size: 1.4rem;
-    margin-top: 25px;
-  }
+  /* ========================================
+     TYPOGRAFIE
+     ======================================== */
+  
+  /* Font Families */
+  --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-mono: 'Courier New', 'Monaco', 'Menlo', monospace;
+  
+  /* Font Sizes */
+  --font-size-xs: 0.75rem;               /* 12px */
+  --font-size-sm: 0.875rem;              /* 14px */
+  --font-size-base: 1rem;                /* 16px */
+  --font-size-lg: 1.125rem;              /* 18px */
+  --font-size-xl: 1.25rem;               /* 20px */
+  --font-size-2xl: 1.5rem;               /* 24px */
+  --font-size-3xl: 1.875rem;             /* 30px */
+  --font-size-4xl: 2.25rem;              /* 36px */
+  --font-size-5xl: 3rem;                 /* 48px */
+  --font-size-6xl: 3.75rem;              /* 60px */
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-black: 900;
+  
+  /* Line Heights */
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  --line-height-loose: 1.8;
+  
+  /* ========================================
+     SPACING (ABSTÄNDE)
+     ======================================== */
+  
+  --space-xs: 0.25rem;                   /* 4px */
+  --space-sm: 0.5rem;                    /* 8px */
+  --space-md: 1rem;                      /* 16px */
+  --space-lg: 1.5rem;                    /* 24px */
+  --space-xl: 2rem;                      /* 32px */
+  --space-2xl: 2.5rem;                   /* 40px */
+  --space-3xl: 3rem;                     /* 48px */
+  --space-4xl: 4rem;                     /* 64px */
+  --space-5xl: 5rem;                     /* 80px */
+  
+  /* ========================================
+     CONTAINER & LAYOUT
+     ======================================== */
+  
+  --container-max-width: 1200px;         /* Maximale Container-Breite */
+  --container-padding: 1.25rem;          /* 20px Container-Padding */
+  --content-max-width: 800px;            /* Maximale Content-Breite */
+  
+  /* ========================================
+     BORDER RADIUS
+     ======================================== */
+  
+  --radius-xs: 0.125rem;                 /* 2px */
+  --radius-sm: 0.25rem;                  /* 4px */
+  --radius-md: 0.5rem;                   /* 8px */
+  --radius-lg: 0.75rem;                  /* 12px */
+  --radius-xl: 1rem;                     /* 16px */
+  --radius-2xl: 1.25rem;                 /* 20px */
+  --radius-full: 9999px;                 /* Vollständig rund */
+  
+  /* ========================================
+     SCHATTEN
+     ======================================== */
+  
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+  
+  /* Dark Mode Schatten (stärker) */
+  --shadow-dark-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-dark-md: 0 4px 15px rgba(0, 0, 0, 0.2);
+  --shadow-dark-lg: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-dark-xl: 0 15px 40px rgba(0, 0, 0, 0.3);
+  
+  /* ========================================
+     ÜBERGÄNGE & ANIMATIONEN
+     ======================================== */
+  
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Easing Functions */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* ========================================
+     Z-INDEX LAYER
+     ======================================== */
+  
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+  --z-toast: 1080;
+  
+  /* ========================================
+     BREAKPOINTS (für Container Queries)
+     ======================================== */
+  
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1400px;
+  
+  /* ========================================
+     CONTENT SPECIFIC
+     ======================================== */
+  
+  /* Navigation */
+  --nav-height: 70px;
+  --nav-height-mobile: 60px;
+  
+  /* Hero Section */
+  --hero-padding-desktop: 6.25rem 2.5rem;    /* 100px 40px */
+  --hero-padding-mobile: 3.125rem 1.25rem;   /* 50px 20px */
+  
+  /* Cards */
+  --card-padding: 2.5rem 1.875rem;           /* 40px 30px */
+  --card-padding-mobile: 1.25rem 0.9375rem;  /* 20px 15px */
 }
 
-@media (max-width: 480px) {
-  .artikel-titel {
-    font-size: 1.9rem;
-  }
-  
-  .artikel-header {
-    padding: 20px;
-  }
-  
-  .artikel-body {
-    padding: 20px;
-  }
-  
-  .artikel-content {
-    font-size: 0.95rem;
-  }
+/* ========================================
+   ALTERNATIVE THEMES (OPTIONAL)
+   ======================================== */
+
+/* Light Mode Theme (falls später gewünscht) */
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f8f9fa;
+  --text-primary: #2c3e50;
+  --text-secondary: #34495e;
+  --text-muted: #7f8c8d;
+  --border-primary: #e1e8ed;
+  --border-secondary: #ecf0f1;
+}
+
+/* High Contrast Theme */
+[data-theme="high-contrast"] {
+  --color-primary: #0066cc;
+  --color-primary-dark: #004499;
+  --shadow-md: 0 4px 15px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 25px rgba(0,0,0,0.5);
 }

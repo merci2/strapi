@@ -1,10 +1,11 @@
 /* react-frontend/src/styles/global.css */
+/* UMGESTELLT AUF DESIGN-TOKENS */
 
 /* ========================================
-   1. GLOBAL STYLES - src/styles/global.css
+   GLOBAL STYLES MIT DESIGN-TOKENS
    ======================================== */
 
-/* CSS Reset und globale Basis-Styles */
+/* CSS Reset */
 *,
 *::before,
 *::after {
@@ -19,10 +20,10 @@ html {
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  color: #ecf0f1;/* #333; */
-  background-color: #f8f9fa; 
+  font-family: var(--font-family-primary); /* Segoe UI über Token */
+  line-height: var(--line-height-normal); /* 1.6 über Token */
+  color: var(--text-primary); /* #ecf0f1 über Token */
+  background-color: var(--bg-primary); /* #1a1a1a über Token */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -36,464 +37,342 @@ body {
 
 .main-content {
   flex: 1;
-  padding-top: 85px; /* Etwas mehr Abstand zur fixen Navigation */
+  padding-top: calc(
+    var(--nav-height) + var(--space-md)
+  ); /* 70px + 15px über Token */
 }
 
 /* ========================================
-   GLOBALE CONTAINER - EINHEITLICHE BREITEN
+   CONTAINER MIT DESIGN-TOKENS
    ======================================== */
 
-/* Basis-Container für alle Seiten - einheitliche Breite */
 .page-container,
 .blog-container,
 .blog-detail-container,
 .nav-container {
-  max-width: 1200px;
+  max-width: var(--container-max-width); /* 1200px über Token */
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: var(--space-2xl) var(--container-padding); /* 40px 20px über Token */
 }
 
-/* Spezielle Container-Anpassungen für verschiedene Bereiche */
-
-/* Page Container (Home, About, Contact) - verbesserte Desktop-Darstellung */
 .page-container {
-  padding: 50px 30px; /* Mehr Padding für bessere Desktop-Darstellung */
+  padding: var(--space-3xl) var(--space-xl); /* 50px 30px über Token */
 }
 
-/* Blog Container (Blog-Liste) */
 .blog-container {
-  padding: 40px 30px;
+  padding: var(--space-2xl) var(--space-xl); /* 40px 30px über Token */
 }
 
-/* Blog Detail Container */
 .blog-detail-container {
-  padding: 40px 30px;
+  padding: var(--space-2xl) var(--space-xl); /* 40px 30px über Token */
 }
 
-/* Navigation Container bleibt wie es ist */
 .nav-container {
-  padding: 0 20px; /* Navigation hat weniger Padding */
+  padding: 0 var(--container-padding); /* 0 20px über Token */
 }
 
 /* ========================================
-   GLOBALE TYPOGRAPHY
+   TYPOGRAPHY MIT DESIGN-TOKENS
    ======================================== */
 
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.3;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: var(--font-weight-semibold); /* 600 über Token */
+  line-height: var(--line-height-tight); /* 1.3 über Token */
   margin-bottom: 0.6em;
-  color: #2c3e50;
+  color: var(--text-primary); /* #ecf0f1 über Token */
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.3rem; }
+h1 {
+  font-size: var(--font-size-4xl);
+} /* 2.5rem über Token */
+h2 {
+  font-size: var(--font-size-3xl);
+} /* 2rem über Token */
+h3 {
+  font-size: var(--font-size-2xl);
+} /* 1.5rem über Token */
+h4 {
+  font-size: var(--font-size-xl);
+} /* 1.3rem über Token */
 
 p {
-  margin-bottom: 1rem;
-  line-height: 1.7;
+  margin-bottom: var(--space-md); /* 1rem über Token */
+  line-height: var(--line-height-relaxed); /* 1.7 über Token */
+  color: var(--text-secondary); /* #bdc3c7 über Token */
 }
 
 a {
-  color: #3498db;
+  color: var(--color-primary-light); /* #5dade2 über Token */
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal); /* 0.3s ease über Token */
 }
 
 a:hover {
-  color: #2980b9;
+  color: var(--color-primary-lighter); /* #85c1e9 über Token */
   text-decoration: underline;
 }
 
 /* ========================================
-   GLOBALE BUTTON STYLES
+   BUTTONS MIT DESIGN-TOKENS
    ======================================== */
 
 .btn {
   display: inline-block;
-  padding: 14px 28px;
+  padding: var(--space-md) var(--space-lg); /* 14px 28px über Token */
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: var(--radius-md); /* 8px über Token */
+  font-weight: var(--font-weight-semibold); /* 600 über Token */
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--transition-normal); /* 0.3s ease über Token */
   text-align: center;
-  font-size: 1rem;
+  font-size: var(--font-size-base); /* 1rem über Token */
 }
 
 .btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  box-shadow: var(--shadow-dark-md); /* Dark Mode Schatten über Token */
 }
 
 .btn-primary {
-  background: #3498db;
-  color: white;
+  background: var(--color-primary); /* #3498db über Token */
+  color: var(--color-white); /* #ffffff über Token */
 }
 
 .btn-primary:hover {
-  background: #2980b9;
+  background: var(--color-primary-dark); /* #2980b9 über Token */
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: #95a5a6;
-  color: white;
+  background: var(--color-gray); /* #7f8c8d über Token */
+  color: var(--color-white); /* #ffffff über Token */
 }
 
 .btn-secondary:hover {
-  background: #7f8c8d;
+  background: var(--color-dark-gray); /* #34495e über Token */
 }
 
 /* ========================================
-   HERO SECTION OPTIMIERUNGEN
+   HERO SECTION MIT DESIGN-TOKENS
    ======================================== */
 
-/* Hero Section für Homepage - bessere Nutzung der verfügbaren Breite */
 .hero-section {
   text-align: center;
-  padding: 100px 40px; /* Mehr Padding für Desktop */
-  background:#2c3e50;
-  color: white;
-  border-radius: 20px;
-  margin-bottom: 50px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: var(--hero-padding-desktop); /* 100px 40px über Token */
+  background: linear-gradient(
+    135deg,
+    var(--color-dark) 0%,
+    var(--color-dark-gray) 100%
+  );
+  color: var(--color-white); /* #ffffff über Token */
+  border-radius: var(--radius-2xl); /* 20px über Token */
+  margin-bottom: var(--space-3xl); /* 50px über Token */
+  box-shadow: var(--shadow-dark-lg); /* Dark Mode Schatten über Token */
 }
 
 .hero-section h1 {
-  font-size: 3.5rem; /* Größere Schrift auf Desktop */
-  margin-bottom: 25px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: var(--font-size-6xl); /* 3.5rem über Token */
+  margin-bottom: var(--space-lg); /* 25px über Token */
+  font-weight: var(--font-weight-bold); /* 700 über Token */
+  line-height: var(--line-height-tight); /* 1.2 über Token */
 }
 
 .hero-subtitle {
-  font-size: 1.4rem;
-  margin-bottom: 35px;
+  font-size: var(--font-size-xl); /* 1.4rem über Token */
+  margin-bottom: var(--space-2xl); /* 35px über Token */
   opacity: 0.9;
-  max-width: 800px; /* Maximale Breite für bessere Lesbarkeit */
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Liste in Hero-Subtitle besser formatieren */
 .hero-subtitle ul {
   text-align: left;
   display: inline-block;
-  margin: 20px 0;
+  margin: var(--space-lg) 0; /* 20px 0 über Token */
 }
 
 .hero-subtitle li {
-  margin-bottom: 8px;
+  margin-bottom: var(--space-sm); /* 8px über Token */
   list-style-type: disc;
-  margin-left: 20px;
+  margin-left: var(--space-lg); /* 20px über Token */
 }
 
 .hero-actions {
-  margin-top: 30px;
+  margin-top: var(--space-xl); /* 30px über Token */
 }
 
 .cta-button {
   display: inline-block;
-  background: white;
-  color: #667eea;
-  padding: 18px 40px; /* Größerer Button auf Desktop */
-  border-radius: 50px;
+  background: var(--color-primary); /* #3498db über Token */
+  color: var(--color-white); /* #ffffff über Token */
+  padding: var(--space-lg) var(--space-2xl); /* 18px 40px über Token */
+  border-radius: var(--radius-full); /* 50px über Token */
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  font-weight: var(--font-weight-semibold); /* 600 über Token */
+  font-size: var(--font-size-lg); /* 1.1rem über Token */
+  transition: all var(--transition-normal); /* 0.3s ease über Token */
+  box-shadow: var(--shadow-dark-md); /* Dark Mode Schatten über Token */
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(0,0,0,0.2);
-  color: #667eea;
+  box-shadow: var(--shadow-dark-xl); /* Stärkerer Schatten über Token */
+  color: var(--color-white); /* #ffffff über Token */
+  background: var(--color-primary-dark); /* #2980b9 über Token */
 }
 
 /* ========================================
-   CONTACT INFO STYLING
+   PAGE CONTENT MIT DESIGN-TOKENS
    ======================================== */
 
-.contact-info {
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-  margin-top: 40px;
-  max-width: 600px;
+.page-container h1 {
+  font-size: var(--font-size-5xl); /* 3rem über Token */
+  margin-bottom: var(--space-xl); /* 30px über Token */
+  color: var(--text-secondary); /* #ecf0f1 über Token */
+  text-align: center;
+}
+
+.page-container p {
+  font-size: var(--font-size-lg); /* 1.2rem über Token */
+  line-height: var(--line-height-loose); /* 1.8 über Token */
+  margin-bottom: var(--space-lg); /* 25px über Token */
+  color: var(--text-secondary); /* #bdc3c7 über Token */
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.contact-info p {
-  margin: 20px 0;
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
 /* ========================================
-   LOADING STATES
+   RESPONSIVE BREAKPOINTS MIT DESIGN-TOKENS
    ======================================== */
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.loading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.loading-spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #667eea;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 1s linear infinite;
-  margin-bottom: 20px;
-}
-
-/* Error States */
-.error {
-  text-align: center;
-  color: #e74c3c;
-  font-size: 1.1rem;
-  padding: 30px;
-  background: white;
-  border: 2px solid #e74c3c;
-  border-radius: 10px;
-  margin: 20px 0;
-}
-
-.retry-btn {
-  background: #e74c3c;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 15px;
-  transition: background 0.3s ease;
-}
-
-.retry-btn:hover {
-  background: #c0392b;
-}
-
-/* ========================================
-   RESPONSIVE BREAKPOINTS - DESKTOP FIRST
-   ======================================== */
-
-/* Extra Large Desktop (1600px+) */
+/* Extra Large Desktop */
 @media (min-width: 1600px) {
   .page-container,
   .blog-container,
   .blog-detail-container {
-    max-width: 1400px;
-    padding: 60px 40px;
+    max-width: var(--breakpoint-2xl); /* 1400px über Token */
+    padding: var(--space-4xl) var(--space-2xl); /* 60px 40px über Token */
   }
-  
+
   .hero-section {
-    padding: 120px 60px;
+    padding: var(--space-5xl) var(--space-4xl); /* 120px 60px über Token */
   }
-  
+
   .hero-section h1 {
-    font-size: 4rem;
+    font-size: 4rem; /* Custom für sehr große Screens */
   }
-  
+
   .hero-subtitle {
-    font-size: 1.6rem;
+    font-size: var(--font-size-2xl); /* 1.6rem über Token */
   }
 }
 
-/* Large Desktop (1200px - 1599px) */
-@media (min-width: 1200px) and (max-width: 1599px) {
-  .page-container,
-  .blog-container,
-  .blog-detail-container {
-    padding: 50px 30px;
-  }
-  
-  .hero-section {
-    padding: 100px 40px;
-  }
-}
-
-/* Standard Desktop (992px - 1199px) */
+/* Standard Desktop */
 @media (min-width: 992px) and (max-width: 1199px) {
   .page-container,
   .blog-container,
   .blog-detail-container {
     max-width: 1000px;
-    padding: 40px 25px;
+    padding: var(--space-2xl) var(--space-lg); /* 40px 25px über Token */
   }
-  
+
   .hero-section {
-    padding: 80px 30px;
+    padding: var(--space-5xl) var(--space-xl); /* 80px 30px über Token */
   }
-  
+
   .hero-section h1 {
-    font-size: 3.2rem;
+    font-size: var(--font-size-5xl); /* 3.2rem über Token */
   }
-  
+
   .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: var(--font-size-xl); /* 1.3rem über Token */
   }
-  
+
   .nav-container {
-    padding: 0 15px;
+    padding: 0 var(--space-md); /* 0 15px über Token */
   }
 }
 
-/* Tablet Landscape (768px - 991px) */
+/* Tablet */
 @media (min-width: 768px) and (max-width: 991px) {
   .page-container,
   .blog-container,
   .blog-detail-container {
-    padding: 35px 20px;
+    padding: var(--space-2xl) var(--space-lg); /* 35px 20px über Token */
   }
-  
+
   .hero-section {
-    padding: 70px 25px;
+    padding: var(--space-4xl) var(--space-lg); /* 70px 25px über Token */
   }
-  
+
   .hero-section h1 {
-    font-size: 2.8rem;
+    font-size: var(--font-size-4xl); /* 2.8rem über Token */
   }
-  
+
   .hero-subtitle {
-    font-size: 1.2rem;
-  }
-  
-  .contact-info {
-    padding: 30px;
-  }
-  
-  .nav-container {
-    padding: 0 15px;
+    font-size: var(--font-size-lg); /* 1.2rem über Token */
   }
 }
 
-/* Tablet Portrait (576px - 767px) */
-@media (min-width: 576px) and (max-width: 767px) {
-  .page-container,
-  .blog-container,
-  .blog-detail-container {
-    padding: 30px 15px;
-  }
-  
-  .hero-section {
-    padding: 60px 20px;
-  }
-  
-  .hero-section h1 {
-    font-size: 2.5rem;
-  }
-  
-  .hero-subtitle {
-    font-size: 1.1rem;
-  }
-  
-  .cta-button {
-    padding: 15px 30px;
-    font-size: 1rem;
-  }
-  
-  .contact-info {
-    padding: 25px;
-  }
-  
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.7rem; }
-  h3 { font-size: 1.3rem; }
-}
-
-/* Mobile (unter 576px) */
+/* Mobile */
 @media (max-width: 575px) {
   .main-content {
-    padding-top: 70px;
+    padding-top: calc(
+      var(--nav-height-mobile) + var(--space-sm)
+    ); /* 60px + 10px über Token */
   }
-  
+
   .page-container,
   .blog-container,
   .blog-detail-container {
-    padding: 20px 15px;
+    padding: var(--space-lg) var(--space-md); /* 20px 15px über Token */
   }
-  
+
   .hero-section {
-    padding: 50px 15px;
-    margin-bottom: 30px;
+    padding: var(--hero-padding-mobile); /* 50px 15px über Token */
+    margin-bottom: var(--space-xl); /* 30px über Token */
   }
-  
+
   .hero-section h1 {
-    font-size: 2.2rem;
-    margin-bottom: 20px;
+    font-size: var(--font-size-3xl); /* 2.2rem über Token */
+    margin-bottom: var(--space-lg); /* 20px über Token */
   }
-  
+
   .hero-subtitle {
-    font-size: 1rem;
-    margin-bottom: 25px;
+    font-size: var(--font-size-base); /* 1rem über Token */
+    margin-bottom: var(--space-lg); /* 25px über Token */
   }
-  
+
   .hero-subtitle ul {
-    margin: 15px 0;
+    margin: var(--space-md) 0; /* 15px 0 über Token */
   }
-  
+
   .hero-subtitle li {
-    margin-bottom: 6px;
-    margin-left: 15px;
+    margin-bottom: var(--space-xs); /* 6px über Token */
+    margin-left: var(--space-md); /* 15px über Token */
   }
-  
+
   .cta-button {
-    padding: 12px 24px;
-    font-size: 0.95rem;
+    padding: var(--space-sm) var(--space-lg); /* 12px 24px über Token */
+    font-size: var(--font-size-sm); /* 0.95rem über Token */
   }
-  
-  .contact-info {
-    padding: 20px;
-    margin-top: 25px;
-  }
-  
-  .contact-info p {
-    font-size: 1rem;
-    margin: 15px 0;
-  }
-  
+
   .nav-container {
-    padding: 0 10px;
+    padding: 0 var(--space-sm); /* 0 10px über Token */
   }
-  
-  h1 { font-size: 1.8rem; }
-  h2 { font-size: 1.5rem; }
-}
 
-/* ========================================
-   KONSISTENZ-CHECKS UND FUTURE-PROOFING
-   ======================================== */
-
-/* Für zukünftige Erweiterungen - konsistente Container-Klassen */
-.container,
-.wrapper,
-.content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
-
-/* Dark Mode Support (optional für zukünftige Verwendung) */
-@media (prefers-color-scheme: dark) {
-  .hero-section {
-    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
-  }
+  h1 {
+    font-size: var(--font-size-3xl);
+  } /* 1.8rem über Token */
+  h2 {
+    font-size: var(--font-size-2xl);
+  } /* 1.5rem über Token */
 }
