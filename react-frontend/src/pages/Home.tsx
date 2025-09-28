@@ -4,8 +4,8 @@ import React from 'react';
 const Home: React.FC = () => {
   return (
     <div className="page-container">
-      <div className="hero-section">
-        <h2>💬 AI Chatbots</h2>
+      <h1>💬 AI Chatbots</h1>
+      <div className="hero-section">   
         <div className="hero-subtitle">
           <p>Tests, also incl. RAG solutions:</p>
           <ul>
