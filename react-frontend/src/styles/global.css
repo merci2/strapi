@@ -342,7 +342,7 @@ a:hover {
   }
 
   .hero-section h1 {
-    font-size: var(--font-size-3xl); /* 2.2rem über Token */
+    font-size: var(--font-size-lg); /* 1.125rem über Token */
     margin-bottom: var(--space-lg); /* 20px über Token */
   }
 
