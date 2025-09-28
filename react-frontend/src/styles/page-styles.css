@@ -1,0 +1,520 @@
+/* ========================================
+   SPEZIFISCHE STYLES FÜR HOME UND ABOUT SEITEN
+   Diese Styles ergänzen die globalen Responsive-Fixes
+   ======================================== */
+
+/* ========================================
+   HOME PAGE STYLES
+   ======================================== */
+
+/* Content Section nach Hero */
+.content-section {
+  margin-top: 60px;
+}
+
+/* Feature Grid für Homepage */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+  border-color: #3498db;
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.feature-card p {
+  color: #7f8c8d;
+  line-height: 1.7;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* ========================================
+   ABOUT PAGE STYLES
+   ======================================== */
+
+/* About Header */
+.about-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.about-lead {
+  font-size: 1.4rem;
+  color: #7f8c8d;
+  margin-top: 20px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* About Content Sections */
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-section {
+  margin-bottom: 50px;
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+}
+
+.about-section h2 {
+  font-size: 2rem;
+  margin-bottom: 25px;
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.about-section p {
+  color: #34495e;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+/* Technology Grid */
+.tech-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.tech-item {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #3498db;
+}
+
+.tech-item h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.tech-item ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tech-item li {
+  padding: 8px 0;
+  color: #7f8c8d;
+  font-size: 1rem;
+  border-bottom: 1px solid #ecf0f1;
+  position: relative;
+  padding-left: 20px;
+}
+
+.tech-item li:before {
+  content: "✓";
+  color: #27ae60;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.tech-item li:last-child {
+  border-bottom: none;
+}
+
+/* Goals List */
+.goals-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.goals-list li {
+  padding: 12px 0;
+  padding-left: 30px;
+  position: relative;
+  color: #34495e;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.goals-list li:before {
+  content: "🎯";
+  position: absolute;
+  left: 0;
+  top: 12px;
+}
+
+.goals-list li:last-child {
+  border-bottom: none;
+}
+
+/* ========================================
+   RESPONSIVE ANPASSUNGEN
+   ======================================== */
+
+/* Large Desktop */
+@media (min-width: 1200px) {
+  .feature-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  
+  .feature-card {
+    padding: 50px 40px;
+  }
+  
+  .about-section {
+    padding: 50px;
+  }
+  
+  .tech-grid {
+    gap: 40px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .feature-card {
+    padding: 35px 25px;
+  }
+  
+  .about-section {
+    padding: 35px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-section {
+    margin-top: 40px;
+  }
+  
+  .feature-grid {
+    gap: 25px;
+  }
+  
+  .feature-card {
+    padding: 30px 25px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.4rem;
+  }
+  
+  .feature-card p {
+    font-size: 1rem;
+  }
+  
+  .about-section {
+    padding: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.8rem;
+  }
+  
+  .tech-grid {
+    gap: 25px;
+  }
+  
+  .tech-item {
+    padding: 20px;
+  }
+}
+
+/* Mobile Landscape */
+@media (min-width: 576px) and (max-width: 767px) {
+  .content-section {
+    margin-top: 30px;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .feature-card {
+    padding: 25px 20px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card p {
+    font-size: 0.95rem;
+  }
+  
+  .about-header {
+    margin-bottom: 40px;
+  }
+  
+  .about-lead {
+    font-size: 1.2rem;
+  }
+  
+  .about-section {
+    padding: 25px;
+    margin-bottom: 30px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .tech-item {
+    padding: 18px;
+  }
+  
+  .tech-item h4 {
+    font-size: 1.2rem;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 575px) {
+  .content-section {
+    margin-top: 25px;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .feature-card {
+    padding: 20px 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  
+  .feature-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .about-header {
+    margin-bottom: 30px;
+  }
+  
+  .about-lead {
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+  
+  .about-section {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .about-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+  }
+  
+  .about-section p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+  
+  .tech-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .tech-item {
+    padding: 15px;
+  }
+  
+  .tech-item h4 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+  
+  .tech-item li {
+    font-size: 0.9rem;
+    padding: 6px 0;
+    padding-left: 18px;
+  }
+  
+  .goals-list li {
+    font-size: 1rem;
+    padding: 10px 0;
+    padding-left: 25px;
+  }
+}
+
+/* ========================================
+   SPEZIELLE HOVER-EFFEKTE FÜR DESKTOP
+   ======================================== */
+
+@media (min-width: 992px) {
+  .about-section {
+    transition: all 0.3s ease;
+  }
+  
+  .about-section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  }
+  
+  .tech-item {
+    transition: all 0.3s ease;
+  }
+  
+  .tech-item:hover {
+    transform: translateY(-2px);
+    background: #ecf0f1;
+    border-left-color: #2980b9;
+  }
+}
+
+/* ========================================
+   PRINT STYLES (BONUS)
+   ======================================== */
+
+@media print {
+  .hero-section {
+    background: none !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc;
+  }
+  
+  .feature-card,
+  .about-section {
+    box-shadow: none !important;
+    border: 1px solid #ddd;
+    page-break-inside: avoid;
+  }
+  
+  .cta-button {
+    border: 1px solid #333;
+    background: none !important;
+    color: black !important;
+  }
+}
+
+/* ========================================
+   ACCESSIBILITY VERBESSERUNGEN
+   ======================================== */
+
+/* Focus States für bessere Zugänglichkeit */
+.feature-card:focus-within,
+.tech-item:focus-within,
+.about-section:focus-within {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .feature-card {
+    border: 2px solid #000;
+  }
+  
+  .tech-item {
+    border-left-width: 6px;
+  }
+  
+  .about-section h2 {
+    border-bottom-width: 3px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .feature-card,
+  .about-section,
+  .tech-item {
+    transition: none;
+  }
+  
+  .feature-card:hover,
+  .about-section:hover,
+  .tech-item:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   DARK MODE SUPPORT (ZUKÜNFTIG)
+   ======================================== */
+
+@media (prefers-color-scheme: dark) {
+  .feature-card,
+  .about-section {
+    background: #2c3e50;
+    color: #ecf0f1;
+    border-color: #34495e;
+  }
+  
+  .feature-card h3,
+  .about-section h2 {
+    color: #ecf0f1;
+  }
+  
+  .feature-card p,
+  .about-section p {
+    color: #bdc3c7;
+  }
+  
+  .tech-item {
+    background: #34495e;
+    color: #ecf0f1;
+  }
+  
+  .tech-item li {
+    color: #bdc3c7;
+    border-bottom-color: #4a5568;
+  }
+  
+  .goals-list li {
+    color: #bdc3c7;
+    border-bottom-color: #4a5568;
+  }
+  
+  .about-lead {
+    color: #bdc3c7;
+  }
+}

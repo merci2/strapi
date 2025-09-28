@@ -6,8 +6,8 @@ const Home: React.FC = () => {
     <div className="page-container">
       <div className="hero-section">
         <h1>🗪 AI Chatbots</h1>
-        <p className="hero-subtitle">
-          Tests, also incl. RAG solutions: 
+        <div className="hero-subtitle">
+          <p>Tests, also incl. RAG solutions:</p>
           <ul>
             <li>Mistral</li>
             <li>Apertus</li>
@@ -17,11 +17,29 @@ const Home: React.FC = () => {
             <li>Llama</li>
             <li>n8n</li>
           </ul>
-        </p>
+        </div>
         <div className="hero-actions">
           <a href="/blog" className="cta-button">
             Blog notes ➡️
           </a>
+        </div>
+      </div>
+      
+      {/* Zusätzlicher Content-Bereich für bessere Desktop-Nutzung */}
+      <div className="content-section">
+        <div className="feature-grid">
+          <div className="feature-card">
+            <h3>🤖 AI Integration</h3>
+            <p>Experimentiere mit verschiedenen AI-Modellen und entdecke ihre einzigartigen Fähigkeiten.</p>
+          </div>
+          <div className="feature-card">
+            <h3>📊 RAG Solutions</h3>
+            <p>Retrieval-Augmented Generation für verbesserte und kontextbezogene AI-Antworten.</p>
+          </div>
+          <div className="feature-card">
+            <h3>⚡ Performance Tests</h3>
+            <p>Vergleichende Analysen verschiedener AI-Plattformen und deren Leistungsfähigkeit.</p>
+          </div>
         </div>
       </div>
     </div>
