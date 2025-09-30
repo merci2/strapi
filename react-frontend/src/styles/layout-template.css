@@ -1,0 +1,580 @@
+/* react-frontend/src/styles/layout-template.css */
+
+/* ========================================
+   LAYOUT TEMPLATE STYLES
+   Demonstriert alle CSS-Konzepte systematisch
+   ======================================== */
+
+/* ========================================
+   SCHRITT 1: BASE LAYOUT
+   ======================================== */
+
+.layout-template {
+  /* Layout Container */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  
+  /* CSS Variables verwenden */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-family-primary);
+  
+  /* Smooth Transitions für Theme-Wechsel */
+  transition: background-color var(--transition-normal), 
+              color var(--transition-normal);
+}
+
+/* Container Pattern - Wiederverwendbar */
+.container {
+  max-width: var(--container-max-width);    /* 1200px */
+  margin: 0 auto;
+  padding: 0 var(--container-padding);      /* 0 20px */
+}
+
+/* ========================================
+   SCHRITT 2: HEADER MIT CSS VARIABLES
+   ======================================== */
+
+.template-header {
+  /* CSS Variables für konsistente Werte */
+  background-color: var(--bg-secondary);
+  border-bottom: var(--space-px) solid var(--border-primary);
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  
+  /* Schatten aus Variables */
+  box-shadow: var(--shadow-dark-md);
+}
+
+.template-header .container {
+  /* Flexbox für Header-Layout */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg) var(--container-padding);
+}
+
+.header-title {
+  /* Typography mit CSS Variables */
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin: 0;
+  
+  /* Glow Effekt im Dark Mode */
+  text-shadow: var(--glow-primary);
+}
+
+.theme-toggle {
+  /* Button Styling mit Variables */
+  background: var(--bg-tertiary);
+  border: var(--space-px) solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  
+  font-size: var(--font-size-lg);
+  cursor: pointer;
+  
+  /* Transition für Hover-Effekte */
+  transition: var(--transition-all);
+}
+
+.theme-toggle:hover {
+  background: var(--color-primary);
+  transform: scale(1.05);
+  box-shadow: var(--shadow-dark-md);
+}
+
+/* ========================================
+   SCHRITT 3: NAVIGATION MIT FLEXBOX
+   ======================================== */
+
+.template-nav {
+  background-color: var(--bg-tertiary);
+  border-bottom: var(--space-px) solid var(--border-secondary);
+}
+
+.nav-list {
+  /* Flexbox für horizontale Navigation */
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-lg);
+}
+
+.nav-link {
+  /* Link Styling mit Variables */
+  display: block;
+  padding: var(--space-md) var(--space-lg);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  
+  /* Smooth Transitions */
+  transition: var(--transition-all);
+}
+
+.nav-link:hover {
+  color: var(--color-primary-light);
+  background-color: var(--bg-primary);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   SCHRITT 4: MAIN CONTENT LAYOUT
+   ======================================== */
+
+.template-main {
+  /* Flex-grow um verfügbaren Platz zu füllen */
+  flex: 1;
+  padding: var(--space-3xl) 0;
+}
+
+.content-section {
+  /* Spacing zwischen Sektionen */
+  margin-bottom: var(--space-5xl);
+}
+
+.content-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  /* Section Headlines */
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2xl);
+  
+  /* Border für visuelle Trennung */
+  border-bottom: 2px solid var(--border-primary);
+  padding-bottom: var(--space-md);
+}
+
+/* ========================================
+   SCHRITT 5: TYPOGRAPHY DEMOS
+   ======================================== */
+
+.typography-examples {
+  /* CSS Grid für Typography Layout */
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.demo-h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-tight);
+  color: var(--text-primary);
+}
+
+.demo-h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-primary);
+}
+
+.demo-h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-snug);
+  color: var(--color-secondary);
+}
+
+.demo-paragraph {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-relaxed);
+  color: var(--text-secondary);
+  max-width: var(--content-max-width);
+}
+
+.demo-link {
+  color: var(--color-primary-light);
+  transition: var(--transition-fast);
+}
+
+.demo-link:hover {
+  color: var(--color-primary-lighter);
+  text-shadow: var(--glow-primary);
+}
+
+.demo-code {
+  /* Monospace Font für Code */
+  font-family: var(--font-family-mono);
+  font-size: var(--font-size-sm);
+  background: var(--bg-accent);
+  border: var(--space-px) solid var(--border-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  display: block;
+  margin-top: var(--space-md);
+}
+
+/* ========================================
+   SCHRITT 6: LAYOUT DEMOS
+   ======================================== */
+
+.layout-demo {
+  margin-bottom: var(--space-3xl);
+}
+
+.demo-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+/* Flexbox Demo */
+.flex-container {
+  display: flex;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  border: var(--space-px) solid var(--border-primary);
+}
+
+.flex-item {
+  /* Flex Items */
+  flex: 1;
+  background: var(--bg-tertiary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  color: var(--text-primary);
+  
+  /* Hover Effekt */
+  transition: var(--transition-all);
+}
+
+.flex-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-dark-lg);
+}
+
+/* CSS Grid Demo */
+.grid-container {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas: 
+    "header header"
+    "sidebar content"
+    "footer footer";
+  gap: var(--space-md);
+  height: 300px;
+  
+  background: var(--bg-secondary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  border: var(--space-px) solid var(--border-primary);
+}
+
+.grid-item {
+  background: var(--bg-tertiary);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-weight: var(--font-weight-medium);
+}
+
+.grid-header { grid-area: header; }
+.grid-sidebar { grid-area: sidebar; }
+.grid-content { grid-area: content; }
+.grid-footer { grid-area: footer; }
+
+/* ========================================
+   SCHRITT 7: KOMPONENTEN
+   ======================================== */
+
+.components-grid {
+  /* CSS Grid für Komponenten Layout */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-xl);
+}
+
+.component-card {
+  /* Card Komponente mit CSS Variables */
+  background: var(--bg-secondary);
+  border: var(--space-px) solid var(--border-primary);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  
+  /* Schatten und Transition */
+  box-shadow: var(--shadow-dark-md);
+  transition: var(--transition-all);
+}
+
+.component-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-dark-xl);
+}
+
+.card-header {
+  background: var(--bg-tertiary);
+  padding: var(--space-lg);
+  border-bottom: var(--space-px) solid var(--border-primary);
+}
+
+.card-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.card-body {
+  padding: var(--space-lg);
+}
+
+/* Button System */
+.btn {
+  /* Base Button Styles */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-md);
+  
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  font-family: inherit;
+  
+  text-decoration: none;
+  cursor: pointer;
+  
+  /* Transitions */
+  transition: var(--transition-all);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-dark-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+/* Button Varianten */
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--color-gray);
+  color: var(--color-white);
+}
+
+.btn-secondary:hover {
+  background: var(--color-dark-gray);
+}
+
+.btn-success {
+  background: var(--color-success);
+  color: var(--color-white);
+}
+
+.btn-warning {
+  background: var(--color-warning);
+  color: var(--color-white);
+}
+
+.btn-error {
+  background: var(--color-error);
+  color: var(--color-white);
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* Form Elemente */
+.form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.form-label {
+  display: block;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.form-input,
+.form-textarea {
+  /* Input Base Styles */
+  width: 100%;
+  padding: var(--input-padding);
+  height: var(--input-height);
+  
+  background: var(--bg-primary);
+  border: var(--space-px) solid var(--border-primary);
+  border-radius: var(--radius-md);
+  
+  font-size: var(--font-size-base);
+  font-family: inherit;
+  color: var(--text-primary);
+  
+  transition: var(--transition-fast);
+}
+
+.form-textarea {
+  height: auto;
+  resize: vertical;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+/* ========================================
+   SCHRITT 8: RESPONSIVE DESIGN
+   ======================================== */
+
+.responsive-demo {
+  background: var(--bg-secondary);
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: var(--space-px) solid var(--border-primary);
+}
+
+.responsive-grid {
+  /* Mobile First Grid */
+  display: grid;
+  gap: var(--space-lg);
+  
+  /* Mobile: 1 Spalte */
+  grid-template-columns: 1fr;
+}
+
+.responsive-item {
+  background: var(--bg-tertiary);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  
+  transition: var(--transition-all);
+}
+
+.responsive-item:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-dark-lg);
+}
+
+/* ========================================
+   SCHRITT 9: FOOTER
+   ======================================== */
+
+.template-footer {
+  background: var(--bg-secondary);
+  border-top: var(--space-px) solid var(--border-primary);
+  padding: var(--space-xl) 0;
+  margin-top: auto;
+}
+
+.template-footer p {
+  margin: 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: var(--font-size-sm);
+}
+
+/* ========================================
+   SCHRITT 10: RESPONSIVE BREAKPOINTS
+   ======================================== */
+
+/* Tablet Breakpoint */
+@media (min-width: 768px) {
+  .responsive-grid {
+    /* Tablet: 2 Spalten */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Navigation horizontal auf Tablet+ */
+  .nav-list {
+    justify-content: center;
+  }
+  
+  /* Größere Schrift auf Tablet+ */
+  .header-title {
+    font-size: var(--font-size-3xl);
+  }
+}
+
+/* Desktop Breakpoint */
+@media (min-width: 1024px) {
+  .responsive-grid {
+    /* Desktop: 3 Spalten */
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Größere Abstände auf Desktop */
+  .content-section {
+    margin-bottom: var(--space-6xl);
+  }
+  
+  /* Flexbox für große Bildschirme */
+  .flex-container {
+    justify-content: space-between;
+  }
+}
+
+/* ========================================
+   SCHRITT 11: ACCESSIBILITY & MOTION
+   ======================================== */
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+  .component-card,
+  .form-input,
+  .form-textarea {
+    border-width: 2px;
+  }
+  
+  .btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Focus styles for accessibility */
+.btn:focus-visible,
+.nav-link:focus-visible,
+.form-input:focus-visible,
+.form-textarea:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

@@ -10,6 +10,7 @@ import Blog from './pages/Blog';
 import BlogDetail from './components/BlogDetail';
 import './styles/global.css';
 import SimpleTest from './pages/SimpleTest';
+import LayoutTemplate from './pages/LayoutTemplate';
 import './styles/index.css';
 
 
@@ -37,7 +38,7 @@ function App() {
             <Route path="/blog/:id" element={<BlogDetail />} />
 
             <Route path="/test" element={<SimpleTest />} />
-            
+            <Route path="/template" element={<LayoutTemplate />} />
             
             {/* 404 Fallback */}
             <Route path="*" element={

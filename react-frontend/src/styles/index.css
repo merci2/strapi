@@ -21,7 +21,7 @@
 @import './bloglist.css';               /* Lädt Blog-Übersicht/Grid Styles */
 @import './blogdetail.css';             /* Lädt Blog-Artikel Detail-Seite Styles */
 @import './page-styles.css';            /* Lädt Home & About Seiten Styles */
-
+@import './layout-template.css';       /* Lädt Layout-Templates (z.B. mit Sidebar) */
 /* ========================================
    UTILITY CLASSES (Best Practice)
    ======================================== */
