@@ -114,16 +114,10 @@ export const getArtikelById = async (documentId: string): Promise<StrapiArticle>
   try {
     console.log('🔍 Lade Artikel:', documentId);
     
-    // STRAPI v5 FIX: Explizite Population für Dynamic Zone (blocks)
-    // populate[blocks][populate]=* lädt alle Felder innerhalb der blocks (inkl. body!)
-    const queryParams = new URLSearchParams({
-      'populate[cover]': '*',
-      'populate[category]': '*',
-      'populate[author][populate][avatar]': '*',
-      'populate[blocks][populate]': '*', // ← KRITISCH für blocks.body!
-    });
+    // STRAPI v5 FIX: Korrekte Syntax für populate
+    // Wichtig: Keine verschachtelten [populate] bei einfachen Relations!
+    const url = `${API_URL}/api/articles/${documentId}?populate[blocks][populate]=*&populate[cover]=*&populate[category]=*&populate[author][populate][avatar]=*`;
     
-    const url = `${API_URL}/api/articles/${documentId}?${queryParams.toString()}`;
     console.log('🔗 Full URL:', url);
     
     // Fetch einzelnen Artikel mit expliziter blocks Population
