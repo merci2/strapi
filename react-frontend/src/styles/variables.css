@@ -7,7 +7,7 @@
 
 :root {
   /* ========================================
-     FARBEN (DARK MODE THEME)
+     FARBEN (DARK MODE THEME) - KORRIGIERT
      ======================================== */
   
   /* Primärfarben */
@@ -36,31 +36,31 @@
   --color-dark: #2c3e50;                 /* Sehr dunkles Grau */
   --color-darker: #1a1a1a;               /* Body Hintergrund */
   
-  /* Hintergründe */
-  --bg-primary: #ffffff;                 /* Haupt-Hintergrund: #1a1a1a; */
+  /* Hintergründe - KORRIGIERT FÜR DARK MODE */
+  --bg-primary: #1a1a1a;                /* KORRIGIERT: Dunkler Haupt-Hintergrund */
   --bg-secondary: #2c3e50;               /* Card-Hintergrund */
   --bg-tertiary: #34495e;                /* Tech-Item Hintergrund */
-  --bg-accent: #f8f9fa;                  /* Heller Akzent (für Code) */
+  --bg-accent: #2c3e50;                  /* KORRIGIERT: Dunkler Akzent */
   
-  /* Text-Farben */
-  --text-primary:  #ecf0f1;              /* Haupt-Textfarbe #ecf0f1;*/
+  /* Text-Farben - KONSISTENT MIT DARK MODE */
+  --text-primary: #ecf0f1;               /* Haupt-Textfarbe (hell auf dunkel) */
   --text-secondary: #bdc3c7;             /* Sekundärer Text */
   --text-muted: #7f8c8d;                 /* Gedämpfter Text */
   
   /* Rahmen */
   --border-primary: #34495e;             /* Haupt-Rahmenfarbe */
   --border-secondary: #4a5568;           /* Sekundäre Rahmenfarbe */
-  --border-light: #ecf0f1;               /* Helle Rahmen */
+  --border-light: #5a6c7d;               /* KORRIGIERT: Sichtbare Rahmen auf dunklem Grund */
   
   /* ========================================
      TYPOGRAFIE
      ======================================== */
   
   /* Font Families */
-  --font-family-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  --font-family-mono: 'Courier New', 'Monaco', 'Menlo', monospace;
+  --font-family-primary: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
   
-  /* Font Sizes */
+  /* Font Sizes - OPTIMIERT (mehr Abstufungen) */
   --font-size-xs: 0.75rem;               /* 12px */
   --font-size-sm: 0.875rem;              /* 14px */
   --font-size-base: 1rem;                /* 16px */
@@ -71,25 +71,32 @@
   --font-size-4xl: 2.25rem;              /* 36px */
   --font-size-5xl: 3rem;                 /* 48px */
   --font-size-6xl: 3.75rem;              /* 60px */
+  --font-size-7xl: 4.5rem;               /* 72px - NEU für Hero */
   
   /* Font Weights */
+  --font-weight-thin: 100;               /* NEU */
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
+  --font-weight-extrabold: 800;          /* NEU */
   --font-weight-black: 900;
   
   /* Line Heights */
+  --line-height-none: 1;                 /* NEU für Headlines */
   --line-height-tight: 1.2;
+  --line-height-snug: 1.375;             /* NEU */
   --line-height-normal: 1.5;
-  --line-height-relaxed: 1.7;
+  --line-height-relaxed: 1.625;          /* ANGEPASST */
   --line-height-loose: 1.8;
   
   /* ========================================
-     SPACING (ABSTÄNDE)
+     SPACING (ABSTÄNDE) - ERWEITERT
      ======================================== */
   
+  --space-px: 1px;                       /* NEU für feine Rahmen */
+  --space-0: 0;                          /* NEU */
   --space-xs: 0.25rem;                   /* 4px */
   --space-sm: 0.5rem;                    /* 8px */
   --space-md: 1rem;                      /* 16px */
@@ -99,6 +106,7 @@
   --space-3xl: 3rem;                     /* 48px */
   --space-4xl: 4rem;                     /* 64px */
   --space-5xl: 5rem;                     /* 80px */
+  --space-6xl: 6rem;                     /* 96px - NEU */
   
   /* ========================================
      CONTAINER & LAYOUT
@@ -107,23 +115,27 @@
   --container-max-width: 1200px;         /* Maximale Container-Breite */
   --container-padding: 1.25rem;          /* 20px Container-Padding */
   --content-max-width: 800px;            /* Maximale Content-Breite */
+  --content-narrow-width: 600px;         /* NEU: Für Blogposts */
   
   /* ========================================
      BORDER RADIUS
      ======================================== */
   
+  --radius-none: 0;                      /* NEU */
   --radius-xs: 0.125rem;                 /* 2px */
   --radius-sm: 0.25rem;                  /* 4px */
   --radius-md: 0.5rem;                   /* 8px */
   --radius-lg: 0.75rem;                  /* 12px */
   --radius-xl: 1rem;                     /* 16px */
   --radius-2xl: 1.25rem;                 /* 20px */
+  --radius-3xl: 1.5rem;                  /* 24px - NEU */
   --radius-full: 9999px;                 /* Vollständig rund */
   
   /* ========================================
-     SCHATTEN
+     SCHATTEN - OPTIMIERT FÜR DARK MODE
      ======================================== */
   
+  /* Light Mode Schatten (falls später gebraucht) */
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -131,11 +143,17 @@
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
   --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
   
-  /* Dark Mode Schatten (stärker) */
+  /* Dark Mode Schatten (Hauptsächlich verwendet) */
+  --shadow-dark-xs: 0 1px 2px rgba(0, 0, 0, 0.3);    /* NEU */
   --shadow-dark-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
   --shadow-dark-md: 0 4px 15px rgba(0, 0, 0, 0.2);
   --shadow-dark-lg: 0 8px 25px rgba(0, 0, 0, 0.3);
   --shadow-dark-xl: 0 15px 40px rgba(0, 0, 0, 0.3);
+  --shadow-dark-2xl: 0 25px 50px rgba(0, 0, 0, 0.4);  /* NEU */
+  
+  /* Glow Effekte für Dark Mode */
+  --glow-primary: 0 0 20px rgba(52, 152, 219, 0.3);   /* NEU */
+  --glow-secondary: 0 0 20px rgba(230, 126, 34, 0.3); /* NEU */
   
   /* ========================================
      ÜBERGÄNGE & ANIMATIONEN
@@ -144,16 +162,20 @@
   --transition-fast: 0.15s ease;
   --transition-normal: 0.3s ease;
   --transition-slow: 0.5s ease;
+  --transition-all: all 0.3s ease;       /* NEU: Häufig verwendet */
   
   /* Easing Functions */
   --ease-in: cubic-bezier(0.4, 0, 1, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-back: cubic-bezier(0.68, -0.55, 0.265, 1.55); /* NEU: Bounce */
   
   /* ========================================
      Z-INDEX LAYER
      ======================================== */
   
+  --z-base: 0;                           /* NEU */
+  --z-raised: 10;                        /* NEU */
   --z-dropdown: 1000;
   --z-sticky: 1020;
   --z-fixed: 1030;
@@ -162,11 +184,13 @@
   --z-popover: 1060;
   --z-tooltip: 1070;
   --z-toast: 1080;
+  --z-max: 9999;                         /* NEU */
   
   /* ========================================
      BREAKPOINTS (für Container Queries)
      ======================================== */
   
+  --breakpoint-xs: 480px;                /* NEU */
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
@@ -188,28 +212,196 @@
   /* Cards */
   --card-padding: 2.5rem 1.875rem;           /* 40px 30px */
   --card-padding-mobile: 1.25rem 0.9375rem;  /* 20px 15px */
+  
+  /* Inputs */
+  --input-height: 2.75rem;               /* NEU: 44px */
+  --input-padding: 0.75rem 1rem;         /* NEU: 12px 16px */
 }
 
 /* ========================================
-   ALTERNATIVE THEMES (OPTIONAL)
+   INTELLIGENT THEME SYSTEM
+   Standard: Mobile = Dark, Desktop = Light
    ======================================== */
 
-/* Light Mode Theme (falls später gewünscht) */
+/* DEFAULT: Dark Mode für alle Geräte */
+:root {
+  /* Dark Mode Variablen sind bereits oben definiert */
+}
+
+/* DESKTOP: Light Mode als Standard (min-width: 1024px) */
+@media (min-width: 1024px) {
+  :root {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --bg-accent: #f1f3f4;
+    
+    --text-primary: #2c3e50;
+    --text-secondary: #34495e;
+    --text-muted: #6c757d;
+    
+    --border-primary: #dee2e6;
+    --border-secondary: #e9ecef;
+    --border-light: #f1f3f4;
+    
+    /* Light Mode Schatten */
+    --shadow-dark-xs: var(--shadow-xs);
+    --shadow-dark-sm: var(--shadow-sm);
+    --shadow-dark-md: var(--shadow-md);
+    --shadow-dark-lg: var(--shadow-lg);
+    --shadow-dark-xl: var(--shadow-xl);
+    --shadow-dark-2xl: var(--shadow-2xl);
+    
+    /* Glow Effekte deaktivieren im Light Mode */
+    --glow-primary: none;
+    --glow-secondary: none;
+  }
+}
+
+/* ========================================
+   MANUAL THEME OVERRIDES (via data-theme)
+   Diese überschreiben die automatischen Standards
+   ======================================== */
+
+/* Manuell auf Light Mode umschalten */
 [data-theme="light"] {
-  --bg-primary: #ffffff;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #f8f9fa;
-  --text-primary: #2c3e50;
-  --text-secondary: #34495e;
-  --text-muted: #7f8c8d;
-  --border-primary: #e1e8ed;
-  --border-secondary: #ecf0f1;
+  --bg-primary: #ffffff !important;
+  --bg-secondary: #f8f9fa !important;
+  --bg-tertiary: #e9ecef !important;
+  --bg-accent: #f1f3f4 !important;
+  
+  --text-primary: #2c3e50 !important;
+  --text-secondary: #34495e !important;
+  --text-muted: #6c757d !important;
+  
+  --border-primary: #dee2e6 !important;
+  --border-secondary: #e9ecef !important;
+  --border-light: #f1f3f4 !important;
+  
+  /* Light Mode Schatten */
+  --shadow-dark-xs: var(--shadow-xs) !important;
+  --shadow-dark-sm: var(--shadow-sm) !important;
+  --shadow-dark-md: var(--shadow-md) !important;
+  --shadow-dark-lg: var(--shadow-lg) !important;
+  --shadow-dark-xl: var(--shadow-xl) !important;
+  --shadow-dark-2xl: var(--shadow-2xl) !important;
+  
+  /* Glow Effekte deaktivieren */
+  --glow-primary: none !important;
+  --glow-secondary: none !important;
+}
+
+/* Manuell auf Dark Mode umschalten */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a !important;
+  --bg-secondary: #2c3e50 !important;
+  --bg-tertiary: #34495e !important;
+  --bg-accent: #2c3e50 !important;
+  
+  --text-primary: #ecf0f1 !important;
+  --text-secondary: #bdc3c7 !important;
+  --text-muted: #7f8c8d !important;
+  
+  --border-primary: #34495e !important;
+  --border-secondary: #4a5568 !important;
+  --border-light: #5a6c7d !important;
+  
+  /* Dark Mode Schatten wiederherstellen */
+  --shadow-dark-xs: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+  --shadow-dark-sm: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  --shadow-dark-md: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+  --shadow-dark-lg: 0 8px 25px rgba(0, 0, 0, 0.3) !important;
+  --shadow-dark-xl: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+  --shadow-dark-2xl: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
+  
+  /* Glow Effekte aktivieren */
+  --glow-primary: 0 0 20px rgba(52, 152, 219, 0.3) !important;
+  --glow-secondary: 0 0 20px rgba(230, 126, 34, 0.3) !important;
 }
 
 /* High Contrast Theme */
 [data-theme="high-contrast"] {
-  --color-primary: #0066cc;
-  --color-primary-dark: #004499;
-  --shadow-md: 0 4px 15px rgba(0,0,0,0.4);
-  --shadow-lg: 0 8px 25px rgba(0,0,0,0.5);
+  --color-primary: #0066cc !important;
+  --color-primary-dark: #004499 !important;
+  --text-primary: #ffffff !important;
+  --bg-primary: #000000 !important;
+  --border-primary: #ffffff !important;
+  --shadow-dark-md: 0 4px 15px rgba(255,255,255,0.2) !important;
+  --shadow-dark-lg: 0 8px 25px rgba(255,255,255,0.3) !important;
+}
+
+/* ========================================
+   AUTOMATIC THEME DETECTION
+   Respektiert User-Präferenzen wenn kein manuelles Theme gesetzt
+   ======================================== */
+
+/* User bevorzugt Dark Mode (überschreibt Desktop-Standard) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2c3e50;
+    --bg-tertiary: #34495e;
+    --bg-accent: #2c3e50;
+    
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --text-muted: #7f8c8d;
+    
+    --border-primary: #34495e;
+    --border-secondary: #4a5568;
+    --border-light: #5a6c7d;
+    
+    /* Dark Mode Schatten */
+    --shadow-dark-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-dark-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-dark-md: 0 4px 15px rgba(0, 0, 0, 0.2);
+    --shadow-dark-lg: 0 8px 25px rgba(0, 0, 0, 0.3);
+    --shadow-dark-xl: 0 15px 40px rgba(0, 0, 0, 0.3);
+    --shadow-dark-2xl: 0 25px 50px rgba(0, 0, 0, 0.4);
+    
+    /* Glow Effekte aktivieren */
+    --glow-primary: 0 0 20px rgba(52, 152, 219, 0.3);
+    --glow-secondary: 0 0 20px rgba(230, 126, 34, 0.3);
+  }
+}
+
+/* User bevorzugt Light Mode */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #e9ecef;
+    --bg-accent: #f1f3f4;
+    
+    --text-primary: #2c3e50;
+    --text-secondary: #34495e;
+    --text-muted: #6c757d;
+    
+    --border-primary: #dee2e6;
+    --border-secondary: #e9ecef;
+    --border-light: #f1f3f4;
+    
+    /* Light Mode Schatten */
+    --shadow-dark-xs: var(--shadow-xs);
+    --shadow-dark-sm: var(--shadow-sm);
+    --shadow-dark-md: var(--shadow-md);
+    --shadow-dark-lg: var(--shadow-lg);
+    --shadow-dark-xl: var(--shadow-xl);
+    --shadow-dark-2xl: var(--shadow-2xl);
+    
+    /* Glow Effekte deaktivieren */
+    --glow-primary: none;
+    --glow-secondary: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  :root {
+    --color-primary: #000000 !important;
+    --text-primary: #000000 !important;
+    --bg-primary: #ffffff !important;
+    --shadow-dark-md: none !important;
+    --shadow-dark-lg: none !important;
+  }
 }
