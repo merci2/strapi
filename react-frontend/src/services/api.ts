@@ -109,13 +109,25 @@ export const getAlleArtikel = async (): Promise<StrapiArticle[]> => {
 };
 
 // Holt einen einzelnen Artikel anhand der documentId
+// KRITISCH: Strapi v5 braucht explizite Population für Dynamic Zones (blocks)
 export const getArtikelById = async (documentId: string): Promise<StrapiArticle> => {
   try {
     console.log('🔍 Lade Artikel:', documentId);
-    console.log('🔗 URL:', `${API_URL}/api/articles/${documentId}?populate=*`);
     
-    // Fetch einzelnen Artikel mit allen Relations (populate=*)
-    const response = await fetch(`${API_URL}/api/articles/${documentId}?populate=*`, {
+    // STRAPI v5 FIX: Explizite Population für Dynamic Zone (blocks)
+    // populate[blocks][populate]=* lädt alle Felder innerhalb der blocks (inkl. body!)
+    const queryParams = new URLSearchParams({
+      'populate[cover]': '*',
+      'populate[category]': '*',
+      'populate[author][populate][avatar]': '*',
+      'populate[blocks][populate]': '*', // ← KRITISCH für blocks.body!
+    });
+    
+    const url = `${API_URL}/api/articles/${documentId}?${queryParams.toString()}`;
+    console.log('🔗 Full URL:', url);
+    
+    // Fetch einzelnen Artikel mit expliziter blocks Population
+    const response = await fetch(url, {
       method: 'GET',
       headers,
     });
@@ -124,6 +136,21 @@ export const getArtikelById = async (documentId: string): Promise<StrapiArticle>
     const result: StrapiResponse<StrapiArticle> = await handleApiResponse(response);
     
     console.log('✅ Artikel Detail geladen:', result.data);
+    console.log('📦 Blocks:', result.data.blocks);
+    
+    // Debug: Zeige blocks Struktur im Detail
+    if (result.data.blocks && result.data.blocks.length > 0) {
+      result.data.blocks.forEach((block, index) => {
+        console.log(`📄 Block ${index} (${block.__component}):`, block);
+        if (block.__component === 'shared.rich-text') {
+          console.log(`   └─ body type:`, typeof block.body);
+          console.log(`   └─ body content:`, block.body);
+        }
+      });
+    } else {
+      console.warn('⚠️ Keine Blocks gefunden! Artikel hat möglicherweise keinen Inhalt.');
+    }
+    
     return result.data;
     
   } catch (error) {
@@ -160,22 +187,22 @@ export const testApiConnection = async (): Promise<{ success: boolean; message: 
     console.log('📍 API_URL:', API_URL);
     console.log('🔐 Token verfügbar:', !!API_TOKEN);
     
-    const response = await fetch(`${API_URL}/api/articles`, {
+    const response = await fetch(`${API_URL}/api/articles?pagination[limit]=1`, {
       method: 'GET',
       headers,
     });
-    
+
     const result = await handleApiResponse(response);
     
     return {
       success: true,
-      message: `Verbindung erfolgreich! ${result.data?.length || 0} Artikel gefunden.`
+      message: `✅ Verbindung erfolgreich! ${result.data?.length || 0} Artikel gefunden.`
     };
     
   } catch (error) {
     return {
       success: false,
-      message: error instanceof Error ? error.message : 'Unbekannter Fehler'
+      message: `❌ Verbindungsfehler: ${error instanceof Error ? error.message : 'Unbekannter Fehler'}`
     };
   }
 };
